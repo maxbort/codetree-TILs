@@ -9,7 +9,7 @@ for _ in range(c):
     checkMap.append(list(map(str,input().split())))
 
 start = checkMap[0][0]
-end = checkMap[c-1][r-1]
+end = checkMap[-1][-1]
 answer = 0
 if start == end:
     print(answer)
