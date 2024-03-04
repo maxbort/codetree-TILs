@@ -1,0 +1,26 @@
+import sys
+
+input = sys.stdin.readline
+
+r,c = map(int,input().split())
+
+checkMap = []
+for _ in range(c):
+    checkMap.append(list(map(str,input().split())))
+
+start = checkMap[0][0]
+end = checkMap[-1][-1]
+answer = 0
+if start == end:
+    print(answer)
+else:
+    for i in range(1,c-2):
+        check = 0
+        for j in range(1,r-2):
+            if checkMap[i][j] != start:
+                check += 1
+                for k in range(i+1,c-1):
+                    for l in range(j+1,r-1):
+                        if checkMap[k][l] != end:
+                            answer += 1
+    print(answer)
