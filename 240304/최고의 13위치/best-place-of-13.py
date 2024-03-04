@@ -15,5 +15,5 @@ for i in range(n):
         for k in range(3):
             if tile[i][j+k] == 1:
                 tmp += 1
-    answer = max(answer,tmp)
+        answer = max(answer,tmp)
 print(answer)
