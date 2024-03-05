@@ -13,7 +13,7 @@ for i in range(length):
         break
 
 if check == 1:
-    for i in range(length,-1):
+    for i in range(length-1,-1,-1):
         if n[i] == 1:
             n[i] = 0
             break
