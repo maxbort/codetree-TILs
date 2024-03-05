@@ -12,8 +12,6 @@ for _ in range(n):
 dist = float('inf')
 
 for i in range(1,n-1):
-    start = point[0]
-    end = point[-1]
     tmp = 0
     for j in range(0,i-1):
         tmp += abs(point[j][0] - point[j+1][0]) + abs(point[j][1] - point[j+1][1])
