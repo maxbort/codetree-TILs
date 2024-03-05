@@ -7,23 +7,18 @@ n = len(bracket)
 
 answer = 0
 for i in range(n):
-    check = False
+    stack = []
     if bracket[i] == '(':
-        check = True
+        stack.append(bracket[i])
         for j in range(i+1,n):
-            if not check:
-                break
-            if bracket[j] == '(':
-                for k in range(j+1,n):
-                    if not check:
-                        break
-                    if bracket[k] == ')':
-                        for l in range(k+1,n):
-                            if not check:
-                                break
-                            if bracket[l] == ')':
-                                answer += 1
-                                check = False
-                                break
+            if bracket[j] == '(' and len(stack) == 1:
+                stack.append(bracket[j])
+            if bracket[j] == ')':
+                if stack[-1] == '(' and len(stack) == 2:
+                    stack.append(bracket[j])
+                if stack[-1] == ')' and len(stack) == 3:
+                    answer += 1
+                    stack = []
+                    break
 
 print(answer)
