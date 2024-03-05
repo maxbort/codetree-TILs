@@ -21,6 +21,10 @@ for i in range(n):
                         answer+= 1
                         check = False
                         break
+                if stack:
+                    print(answer)
+                    exit()
+                
             if not check:
                 stack = []
                 break
