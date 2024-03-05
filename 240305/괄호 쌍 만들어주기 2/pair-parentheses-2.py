@@ -11,14 +11,13 @@ for i in range(n):
     if bracket[i] == '(':
         stack.append(bracket[i])
         for j in range(i+1,n):
-            if bracket[j] == '(' and len(stack) == 1:
+            if len(stack) == 1:
                 stack.append(bracket[j])
             if bracket[j] == ')':
-                if stack[-1] == '(' and len(stack) == 2:
+                if len(stack) == 2:
                     stack.append(bracket[j])
-                if stack[-1] == ')' and len(stack) == 3:
+                if len(stack) == 3:
                     answer += 1
-                    stack = []
                     break
 
 print(answer)
