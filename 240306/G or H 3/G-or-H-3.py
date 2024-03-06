@@ -11,7 +11,8 @@ for _ in range(n):
     alpha[int(a)] = b
 
 answer = 0
-
+if k >= 100:
+    k = 0
 for i in range(100-k):
     tmp = 0
     for j in range(k+1):
