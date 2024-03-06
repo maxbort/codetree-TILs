@@ -4,16 +4,15 @@ input = sys.stdin.readline
 
 n,k = map(int,input().split())
 
-alpha = ['O' for _ in range(100)]
+alpha = ['O' for _ in range(10000)]
 
 for _ in range(n):
     a,b = map(str,input().split())
     alpha[int(a)] = b
 
 answer = 0
-if k >= 100:
-    k = 0
-for i in range(100-k):
+
+for i in range(10000-k):
     tmp = 0
     for j in range(k+1):
         if alpha[i+j] == 'H':
