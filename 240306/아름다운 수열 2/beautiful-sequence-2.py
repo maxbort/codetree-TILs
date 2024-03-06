@@ -7,11 +7,11 @@ n,m = map(int,input().split())
 num_list1 = list(map(int,input().split()))
 num_list2 = list(map(int,input().split()))
 
-flag = True
 answer = 0
-for i in range(0,n-m+1):
+for i in range(n-m+1):
+    flag = True
     for j in range(m):
-        if num_list2.count(num_list2[j]) == num_list1[i:i+m+1].count(num_list2[j]):
+        if num_list2.count(num_list2[j]) == num_list1[i:i+m].count(num_list2[j]):
             continue
         else:
             flag = False
