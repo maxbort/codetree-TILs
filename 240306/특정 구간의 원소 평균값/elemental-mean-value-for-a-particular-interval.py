@@ -7,7 +7,7 @@ n = int(input())
 num_list = list(map(int,input().split()))
 
 answer = n
-for i in range(n):
+for i in range(n+1):
     if i == 1 or i == 0:
         continue
     else:
