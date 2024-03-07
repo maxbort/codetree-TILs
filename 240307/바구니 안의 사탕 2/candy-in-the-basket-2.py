@@ -7,7 +7,7 @@ n,k = map(int,input().split())
 bag = [0 for _ in range(100)]
 for _ in range(n):
     candy, point = map(int,input().split())
-    bag[point] = candy
+    bag[point] += candy
 
 answer = 0
 for i in range(k,100-k):
