@@ -13,6 +13,6 @@ for i in range(n-2):
         for k in range(3):
             for l in range(3):
                 tmp+= graph[i+k][j+l]
-    answer = max(tmp,answer)
+        answer = max(tmp,answer)
 
 print(answer)
