@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 n,k = map(int,input().split())
 
-bag = [0 for _ in range(100)]
+bag = [0 for _ in range(101)]
 for _ in range(n):
     candy, point = map(int,input().split())
     bag[point] += candy
