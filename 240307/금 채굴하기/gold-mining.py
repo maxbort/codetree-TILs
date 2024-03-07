@@ -11,29 +11,31 @@ def cal_loss(k):
 
 # k 번움직여서 닿는 곳 -> 마름모 범위?
 answer = 0
+
 for i in range(n):
     for j in range(n):
-        for a in range(n):
-            loss = cal_loss(a)
-            tmp = 0
-            visit = [[False for _ in range(n)] for _ in range(n)]
-            for b in range(a+1):
-                plus_x = b
-                plus_y = a-b
-                if 0 <= i+plus_x < n and 0 <= j + plus_y < n and not visit[i+plus_x][j+plus_y]:
-                    tmp += graph[i+plus_x][j+plus_y]
-                    visit[i+plus_x][j+plus_y] = True
-                if 0 <= i+plus_x < n and 0 <= j - plus_y < n and not visit[i+plus_x][j-plus_y]:
-                    tmp += graph[i+plus_x][j-plus_y]
-                    visit[i+plus_x][j-plus_y] = True
-                if 0 <= i-plus_x < n and 0 <= j + plus_y < n and not visit[i-plus_x][j+plus_y]:
-                    tmp += graph[i-plus_x][j+plus_y]
-                    visit[i-plus_x][j+plus_y] = True
-                if 0 <= i-plus_x < n and 0 <= j - plus_y < n and not visit[i-plus_x][j-plus_y]:
-                    tmp += graph[i-plus_x][j-plus_y]
-                    visit[i-plus_x][j-plus_y] = True
-
-            if m*tmp >= loss:
-                answer = max(answer, tmp)
-
+        for k in range(n): # 채굴 범위 지정
+            loss = cal_loss(k) # 손실 계산
+            
+            for dx in range(k+1): # 범위 내 금 개수 찾기
+                dy = k-dx
+                tmp = 0
+                visit = [[False for _ in range(n)] for _ in range(n)]
+                for ddx in range(dx+1):
+                    for ddy in range(dy+1):
+                        if 0 <= i + ddx < n and 0 <= j+ddy < n and not visit[i+ddx][j+ddy]:
+                            tmp += graph[i+ddx][j + ddy]
+                            visit[i+ddx][j+ddy] = True
+                        if 0 <= i + ddx < n and 0 <= j-ddy < n and not visit[i+ddx][j-ddy]:
+                            tmp += graph[i+ddx][j - ddy]
+                            visit[i+ddx][j-ddy] = True
+                        if 0 <= i - ddx < n and 0 <= j+ddy < n and not visit[i-ddx][j+ddy]:
+                            tmp += graph[i-ddx][j + ddy]
+                            visit[i-ddx][j+ddy] = True
+                        if 0 <= i - ddx < n and 0 <= j-ddy < n and not visit[i-ddx][j-ddy]:
+                            tmp += graph[i-ddx][j - ddy]
+                            visit[i-ddx][j-ddy] = True
+                
+                if loss <= tmp*m:
+                    answer = max(answer,tmp)
 print(answer)
