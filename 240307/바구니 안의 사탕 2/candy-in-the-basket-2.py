@@ -10,7 +10,7 @@ for _ in range(n):
     bag[point] += candy
 
 answer = 0
-for i in range(k,100-k):
+for i in range(k,101-k):
     tmp = sum(bag[i-k:i+k+1])
     answer = max(answer,tmp)
 print(answer)
