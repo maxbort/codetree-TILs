@@ -16,11 +16,11 @@ for i in range(n):
     for j in range(n):
         for k in range(n): # 채굴 범위 지정
             loss = cal_loss(k) # 손실 계산
-            
+            tmp = 0
+            visit = [[False for _ in range(n)] for _ in range(n)]
             for dx in range(k+1): # 범위 내 금 개수 찾기
                 dy = k-dx
-                tmp = 0
-                visit = [[False for _ in range(n)] for _ in range(n)]
+                
                 for ddx in range(dx+1):
                     for ddy in range(dy+1):
                         if 0 <= i + ddx < n and 0 <= j+ddy < n and not visit[i+ddx][j+ddy]:
@@ -36,6 +36,6 @@ for i in range(n):
                             tmp += graph[i-ddx][j - ddy]
                             visit[i-ddx][j-ddy] = True
                 
-                if loss <= tmp*m:
-                    answer = max(answer,tmp)
+            if loss <= tmp*m:
+                answer = max(answer,tmp)
 print(answer)
