@@ -34,6 +34,8 @@ for i in range(n):
             dx = x - 1
             dy = y - 1
             if 0 <= dx < n and 0 <= dy < n:
+                if dx == 0 and dy == 0:
+                    break
                 tmp += graph[dx][dy]
                 check2+= 1
                 x,y = dx,dy
