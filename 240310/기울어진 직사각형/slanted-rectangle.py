@@ -19,6 +19,8 @@ for i in range(n):
             dx = x - 1
             dy = y + 1
             if 0 <= dx < n and 0 <= dy < n:
+                if dx == 0 and dy == n-1:
+                    break
                 check1+= 1
                 tmp += graph[dx][dy]
                 x,y = dx,dy
@@ -65,7 +67,7 @@ for i in range(n):
 
         if check2 !=0:
             continue
-       
+      
         answer = max(answer,tmp)
 
 print(answer)
