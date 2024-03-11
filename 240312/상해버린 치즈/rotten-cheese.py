@@ -17,7 +17,7 @@ for people_num, cheeze_num, eat_time in eat_when:
     for sick_people, sick_time in sick_when:
         if people_num == sick_people:
             if sick_time > fisrt_sick:
-                continue
+                candi_bad_cheeze[cheeze_num] = False
         if people_num == sick_time:
             if eat_time < sick_time:
                 candi_bad_cheeze[cheeze_num] = True
