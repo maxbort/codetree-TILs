@@ -16,7 +16,7 @@ cheeze_cnt = [0 for _ in range(m+1)]
 for people_num, cheeze_num, eat_time in eat_when:
     for sick_people, sick_time in sick_when:
         if people_num == sick_people:
-            if eat_time < sick_time:
+            if eat_time < fisrt_sick:
                 candi_bad_cheeze[cheeze_num] = True
                 cheeze_cnt[cheeze_num] += 1
 
