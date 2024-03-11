@@ -32,4 +32,7 @@ answer = 0
 for people_num, cheeze_num, eat_time in eat_when:
     if cheeze_num == bad_cheeze:
         answer += 1
-print(answer)
+if answer <= n:
+    print(answer)
+else:
+    print(n)
