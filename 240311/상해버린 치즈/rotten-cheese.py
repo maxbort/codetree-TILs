@@ -25,5 +25,5 @@ for bad_cheeze in cheeze_list:
         tmp = 0
         for people_num,cheeze_num,eat_time in eat_when:
             if cheeze_num == bad_cheeze:
-                answer[people_num] += 1
-print(max(answer))
+                answer[people_num] = 1
+print(sum(answer))
