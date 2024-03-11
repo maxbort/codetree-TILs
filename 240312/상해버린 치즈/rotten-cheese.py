@@ -11,20 +11,24 @@ sick_when = [list(map(int,input().split())) for _ in range(s)]
 sick_when.sort(key=lambda x : x[1])
 candi_bad_cheeze = [False for _ in range(m+1)]
 cheeze_cnt = [0 for _ in range(m+1)]
-fisrt_sick = sick_when[0][1]
+first_sick = sick_when[0][1]
+first_sick_people = sick_when[0][0]
 
 for people_num, cheeze_num, eat_time in eat_when:
     for sick_people, sick_time in sick_when:
-        if people_num == sick_people:
-            if sick_time > fisrt_sick:
-                candi_bad_cheeze[cheeze_num] = False
+  
         if people_num == sick_time:
             if eat_time < sick_time:
                 candi_bad_cheeze[cheeze_num] = True
                 cheeze_cnt[cheeze_num] += 1
 
 
-
+for i in range(len(candi_bad_cheeze)):
+    for people_num, cheeze_num, eat_time in eat_when:
+        if people_num == first_sick_people:
+            if cheeze_num == i:
+                if first_sick < eat_time:
+                    candi_bad_cheeze[i] = False
 
 tmp= 0
 bad_cheeze = 0
