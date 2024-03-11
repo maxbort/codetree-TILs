@@ -8,41 +8,34 @@ eat_when=[list(map(int,input().split())) for _ in range(d)]
 
 sick_when = [list(map(int,input().split())) for _ in range(s)]
 
-sick_when.sort(key=lambda x : x[1])
-candi_bad_cheeze = [False for _ in range(m+1)]
-cheeze_cnt = [0 for _ in range(m+1)]
-first_sick = sick_when[0][1]
-first_sick_people = sick_when[0][0]
+cheeze_list =[[] for _ in range(m+1)]
+first_sick_list = [101 for _ in range(n+1)]
 
+sick_cnt = 0
 for people_num, cheeze_num, eat_time in eat_when:
     for sick_people, sick_time in sick_when:
-  
-        if people_num == sick_time:
+        if people_num == sick_people:
             if eat_time < sick_time:
-                candi_bad_cheeze[cheeze_num] = True
-                cheeze_cnt[cheeze_num] += 1
+                cheeze_list[cheeze_num].append(people_num)
+                if sick_time < first_sick_list[sick_people]:
+                    first_sick_list[sick_people] = sick_time
+    
 
 
-for i in range(len(candi_bad_cheeze)):
-    for people_num, cheeze_num, eat_time in eat_when:
-        if people_num == first_sick_people:
-            if cheeze_num == i:
-                if first_sick < eat_time:
-                    candi_bad_cheeze[i] = False
-
-tmp= 0
-bad_cheeze = 0
-for i in range(len(cheeze_cnt)):
-    if cheeze_cnt[i] >= tmp:
-        tmp = cheeze_cnt[i]
-        bad_cheeze = i
-
+max_cnt = 0
+for i in cheeze_list:
+    if len(i) > max_cnt:
+        max_cnt = max(len(i),max_cnt)
 
 answer = 0
-for people_num, cheeze_num, eat_time in eat_when:
-    if cheeze_num == bad_cheeze:
-        answer += 1
-if answer <= n:
-    print(answer)
-else:
-    print(n)
+
+for i in range(len(cheeze_list)):
+    tmp = 0
+    if len(cheeze_list[i]) == max_cnt:
+        for people_num, cheeze_num, eat_time in eat_when:
+            if i == cheeze_num:
+                tmp += 1
+    answer = max(tmp,answer)
+       
+
+print(answer)
