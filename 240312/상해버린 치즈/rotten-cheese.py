@@ -2,38 +2,31 @@ import sys
 
 input = sys.stdin.readline
 
-n,m,d,s = map(int,input().split())
+n, m, d, s = map(int, input().split())
 
-eat_when=[list(map(int,input().split())) for _ in range(d)]
+# 사람이 먹은 치즈와 그 시간을 기록
+eat_when = [list(map(int, input().split())) for _ in range(d)]
 
-sick_when = [list(map(int,input().split())) for _ in range(s)]
+# 아픈 기록을 사전에 정렬
+sick_when = sorted([list(map(int, input().split())) for _ in range(s)], key=lambda x: x[1])
 
-cheeze_list =[[] for _ in range(m+1)]
+# 각 치즈별로 먹은 사람을 기록할 리스트
+cheeze_list = [[] for _ in range(m+1)]
 
-sick_cnt = 0
+# 각 사람이 아프기 시작한 최소 시간을 기록
+min_sick_time = [sys.maxsize for _ in range(n+1)]
+for people_num, sick_time in sick_when:
+    min_sick_time[people_num] = min(min_sick_time[people_num], sick_time)
+
+# 아픈 시간 전에 먹은 치즈만을 후보로 선정
 for people_num, cheeze_num, eat_time in eat_when:
-    for sick_people, sick_time in sick_when:
-        if people_num == sick_people:
-            if eat_time < sick_time:
-                cheeze_list[cheeze_num].append(people_num)
-    
+    if eat_time < min_sick_time[people_num]:
+        cheeze_list[cheeze_num].append(people_num)
 
+# 가장 많이 아픈 사람들이 먹은 치즈 찾기
+max_eaters = 0
+for cheeze_eaters in cheeze_list:
+    unique_eaters = len(set(cheeze_eaters))  # 중복 제거
+    max_eaters = max(max_eaters, unique_eaters)
 
-max_cnt = 0
-for i in cheeze_list:
-    if len(i) > max_cnt:
-        max_cnt = max(len(i),max_cnt)
-
-answer = 0
-
-for i in range(len(cheeze_list)):
-    tmp = 0
-    visit=[False for _ in range(n+1)]
-    if len(cheeze_list[i]) == max_cnt:
-        for people_num, cheeze_num, eat_time in eat_when:
-            if i == cheeze_num and not visit[people_num]:
-                visit[people_num] = True
-                tmp += 1
-    answer = max(tmp,answer)
-       
-print(answer)
+print(max_eaters)
