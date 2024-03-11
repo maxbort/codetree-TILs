@@ -37,5 +37,7 @@ for i in range(len(cheeze_list)):
                 tmp += 1
     answer = max(tmp,answer)
        
-
-print(answer)
+if answer < n:
+    print(answer)
+else:
+    print(n)
