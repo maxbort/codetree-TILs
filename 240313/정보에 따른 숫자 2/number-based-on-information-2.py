@@ -15,7 +15,7 @@ answer = 0
 for i in range(a,b+1):
     d1 = b+1
     d2 = b+1
-    for j in range(a,b+1):
+    for j in range(1001):
         if line[j] == 'S':
             d1 = min(d1,abs(j-i))
         if line[j] == 'N':
