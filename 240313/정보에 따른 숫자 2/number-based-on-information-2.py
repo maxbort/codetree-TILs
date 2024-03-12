@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 t,a,b = map(int,input().split())
 
-line = ['O' for _ in range(b+1)]
+line = ['O' for _ in range(101)]
 
 for _ in range(t):
     c,d = map(str,input().split())
