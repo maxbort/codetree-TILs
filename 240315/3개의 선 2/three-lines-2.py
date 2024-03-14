@@ -25,7 +25,7 @@ def yyy(i,j,k,q):
 def xxy(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if x != i and x != j and x != k:
+        if x != i and x != j and y != k:
             return False
     return True
 def xyy(i,j,k,q):
