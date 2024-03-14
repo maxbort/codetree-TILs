@@ -13,31 +13,25 @@ q = deque(line_list)
 def xxx(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if x == i or x == j or x == k:
-            continue
+        if x != i and x != j and x != k:
+            return False
     return True
 def yyy(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if y == i or y == j or y == k:
-            continue
-        else:
+        if y != i and y != j and y != k:
             return False
     return True
 def xxy(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if x == i or x == j or y == k:
-            continue
-        else:
+        if x != i and x != j and x != k:
             return False
     return True
 def xyy(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if y == i or y == j or x == k:
-            continue
-        else:
+        if y != i and y != j and x != k:
             return False
     return True
 # xxx, yyy
@@ -47,7 +41,7 @@ for i in range(max_xy-2):
     for j in range(i+1,max_xy-1):
         for k in range(j+1,max_xy):
             a = xxx(i,j,k,deepcopy(q))
-            b = xxx(i,j,k,deepcopy(q))
+            b = yyy(i,j,k,deepcopy(q))
             if a or b:
                 print(1)
                 sys.exit()
