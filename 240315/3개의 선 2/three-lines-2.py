@@ -13,8 +13,8 @@ q = deque(line_list)
 def xxx(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if x != i and x != j and x != k:
-            return False
+        if x == i or x == j or x == k:
+            continue
     return True
 def yyy(i,j,k,q):
     while q:            
