@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+from copy import deepcopy
 input = sys.stdin.readline
 
 n = int(input())
@@ -12,9 +13,7 @@ q = deque(line_list)
 def xxx(i,j,k,q):
     while q:            
         x,y = q.popleft()
-        if x == i or x == j or x == k:
-            continue
-        else:
+        if x != i and x != j and x != k:
             return False
     return True
 def yyy(i,j,k,q):
@@ -45,10 +44,10 @@ def xyy(i,j,k,q):
 
 a,b,c,d = False, False, False, False
 for i in range(max_xy-2):
-    for j in range(i+1,max_xy):
+    for j in range(i+1,max_xy-1):
         for k in range(j+1,max_xy):
-            a = xxx(i,j,k,q)
-            b = xxx(i,j,k,q)
+            a = xxx(i,j,k,deepcopy(q))
+            b = xxx(i,j,k,deepcopy(q))
             if a or b:
                 print(1)
                 sys.exit()
@@ -57,8 +56,10 @@ for i in range(max_xy-2):
 for i in range(max_xy-1):
     for j in range(i+1,max_xy):
         for k in range(max_xy):
-            c = xxy(i,j,k,q)
-            d = xyy(i,j,k,q)
+            c = xxy(i,j,k,deepcopy(q))
+            d = xyy(i,j,k,deepcopy(q))
             if c or d:
                 print(1)
                 sys.exit()
+    
+print(0)
