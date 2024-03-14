@@ -10,7 +10,6 @@ for i in range(3):
         team1 = set(result[i])
         team2 = set([result[i][0], result[i+1][0], result[i+2][0]])
         if len(team1) == 2:
-            print(team1)
             answer += 1
         if len(team2) == 2:
             answer += 1
