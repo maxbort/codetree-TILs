@@ -20,7 +20,6 @@ for i in range(3):
         if len(team1) == 2:
             answer += 1
         if len(team2) == 2:
-            print(team2)
             answer += 1
     if i==1:
         team1 = set(result[i])
