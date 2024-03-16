@@ -4,24 +4,21 @@ input = sys.stdin.readline
 
 n = int(input())
 
-num_list = list(map(int,input().split()))
+num = list(map(int,input().split()))
 
-answer = -float('inf')
 a = 0
+answer = -float('inf')
+
 while True:
     tmp = 0
     if a >= n-1:
         break
-    if num_list[a] <= 0:
-        a += 1
     else:
-        for i in range(a,n):
-            tmp += num_list[i]
-            answer = max(answer,tmp)
-            if tmp < 0:
-                a = i
-                break
-        if i == n-1:
+        a += 1
+    for i in range(a,n):
+        tmp += num[i]
+        answer = max(answer,tmp)
+        if tmp < 0:
+            a = i
             break
-    
 print(answer)
