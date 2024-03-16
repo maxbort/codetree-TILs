@@ -6,7 +6,7 @@ n = int(input())
 
 num_list = list(map(int,input().split()))
 
-answer = 0
+answer = -float('inf')
 a = 0
 while True:
     tmp = 0
