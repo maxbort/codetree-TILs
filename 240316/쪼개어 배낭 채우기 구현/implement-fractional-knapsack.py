@@ -8,7 +8,7 @@ jew = []
 
 for _ in range(n):
     a,b = map(int,input().split())
-    jew.append([b,round(b/a,3),a])
+    jew.append([b,b/a,a])
 
 jew.sort(key = lambda x : x[1], reverse=True)
 
@@ -25,4 +25,4 @@ for rv,v,w in jew:
                 break
         if m == 0:
             break
-print("{:.3f}".format(round(answer,4)))
+print("{:.3f}".format(round(answer,3)))
