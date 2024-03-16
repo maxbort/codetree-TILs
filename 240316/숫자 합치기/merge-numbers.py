@@ -10,8 +10,8 @@ for i in num:
     heapq.heappush(pq,i)
 
 while len(pq) > 1:
-    x1 = heappop(pq)
-    x2 = heappop(pq)
+    x1 = heapq.heappop(pq)
+    x2 = heapq.heappop(pq)
 
     answer += x1+x2
     heapq.heappush(pq,x1+x2)
