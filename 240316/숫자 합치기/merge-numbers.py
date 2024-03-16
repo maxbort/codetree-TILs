@@ -1,37 +1,22 @@
 import sys
-from copy import deepcopy
+from collections import deque
 
 input = sys.stdin.readline
 
 n = int(input())
- 
+
 num = list(map(int,input().split()))
 
-num.sort()
+num.sort(reverse = True)
 
-answer=  0
-tmp =[]
-while True:
+answer = 0
+while len(num) > 1:
     tmp = []
-    if len(num) == 2:
-        answer += sum(num)
-        break
-    if len(num) == 1:
-        break
-   
-    if len(num) % 2 == 0:    
-        for i in range(0,len(num),2):
-            tmp.append(num[i] + num[i+1])
-        answer += sum(tmp)
+    a = num.pop()
+    b = num.pop()
+    answer += a+b
+    num.append(a+b)
+    num.sort(reverse = True)
 
-    else:
-        for i in range(0,len(num),2):
-            if i < len(num)-1:
-                tmp.append(num[i] + num[i+1])
-        answer += sum(tmp)
-        tmp.append(num[-1])
-    num = tmp
-
-    
 
 print(answer)
