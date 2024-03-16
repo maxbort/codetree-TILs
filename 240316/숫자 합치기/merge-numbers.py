@@ -1,33 +1,20 @@
-import sys
-from copy import deepcopy
-
-input = sys.stdin.readline
-
 n = int(input())
- 
-num = list(map(int,input().split()))
-
+num = list(map(int, input().split()))
 num.sort()
 
-answer=  0
-tmp =[]
-while True:
-    tmp = []
-    if len(num) % 2 == 0:    
-        for i in range(0,len(num),2):
-            tmp.append(num[i] + num[i+1])
-        answer += sum(tmp)
+answer = 0
 
-    else:
-        for i in range(0,len(num),2):
-            if i < len(num)-1:
-                tmp.append(num[i] + num[i+1])
-        answer += sum(tmp)
+while len(num) > 1:
+    tmp = []
+    for i in range(0, len(num)-1, 2):
+        tmp_sum = num[i] + num[i+1]
+        answer += tmp_sum
+        tmp.append(tmp_sum)
+    if len(num) % 2 != 0:
         tmp.append(num[-1])
     num = tmp
 
-    if len(num) <= 2:
-        answer += sum(tmp)
-        break
+if len(num) == 1:
+    answer += num[0]
 
 print(answer)
