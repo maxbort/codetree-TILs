@@ -13,6 +13,10 @@ answer=  0
 tmp =[]
 while True:
     tmp = []
+    if len(num) <= 2:
+        answer += sum(num)
+        break
+   
     if len(num) % 2 == 0:    
         for i in range(0,len(num),2):
             tmp.append(num[i] + num[i+1])
@@ -24,13 +28,8 @@ while True:
                 tmp.append(num[i] + num[i+1])
         answer += sum(tmp)
         tmp.append(num[-1])
-
     num = tmp
 
-    if len(num) == 2:
-        answer += sum(tmp)
-        break
-    if len(num) == 1:
-        break
+    
 
 print(answer)
