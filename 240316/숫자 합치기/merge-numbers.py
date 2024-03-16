@@ -20,7 +20,7 @@ while True:
         answer += sum(tmp)
 
     else:
-        for i in range(0,len(num),2):
+        for i in range(0,len(num)-1,2):
             if i < len(num)-1:
                 tmp.append(num[i] + num[i+1])
         answer += sum(tmp)
