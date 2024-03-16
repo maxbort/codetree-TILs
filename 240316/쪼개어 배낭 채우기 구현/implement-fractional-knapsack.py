@@ -25,4 +25,4 @@ for rv,v,w in jew:
                 break
         if m == 0:
             break
-print("{:.3f}".format(round(answer,3)))
+print("{:.3f}".format(round(answer,4)))
