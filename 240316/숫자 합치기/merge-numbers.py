@@ -13,8 +13,10 @@ answer=  0
 tmp =[]
 while True:
     tmp = []
-    if len(num) <= 2:
+    if len(num) == 2:
         answer += sum(num)
+        break
+    if len(num) == 1:
         break
    
     if len(num) % 2 == 0:    
