@@ -26,7 +26,7 @@ while True:
         tmp.append(num[-1])
     num = tmp
 
-    if len(num) >= 2:
+    if len(num) <= 2:
         answer += sum(tmp)
         break
 
