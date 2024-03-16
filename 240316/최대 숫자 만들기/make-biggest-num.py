@@ -3,18 +3,20 @@ from functools import cmp_to_key
 
 input = sys.stdin.readline
 
-def compare(x,y):
-    if x > y:
+n = int(input())
+ 
+num = [str(input().rstrip()) for _ in range(n)]
+
+def compare(a,b):
+    if str(a) + str(b) > str(b) + str(a):
         return -1
-    if y > x:
+    
+    if str(a) + str(b) > str(b) + str(a):
         return 1
+
     return 0
 
-n = int(input())
-
-num = [int(input()) for _ in range(n)]
-
 num.sort(key=cmp_to_key(compare))
-num.sort(key=lambda x : len(str(x)))
+
 for i in num:
-    print(i,end='')
+    print(i,end="")
