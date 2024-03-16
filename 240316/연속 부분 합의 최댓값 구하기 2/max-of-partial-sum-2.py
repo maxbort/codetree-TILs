@@ -10,6 +10,8 @@ answer = 0
 a = 0
 while True:
     tmp = 0
+    if a >= n-1:
+        break
     if num_list[a] <= 0:
         a += 1
     else:
