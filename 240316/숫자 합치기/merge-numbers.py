@@ -1,23 +1,18 @@
-import sys
-from collections import deque
+import heapq
 
-input = sys.stdin.readline
-from collections import deque
 n = int(input())
-
 num = list(map(int,input().split()))
 
-num.sort(reverse = True)
+pq = []
 answer = 0
-while len(num) > 2:
-    tmp = []
-    a = num.pop()
-    b = num.pop()
-    answer += a+b
-    num.append(a+b)
-    num.sort(reverse = True)
 
-if len(num) == 2:
-    answer += sum(num)
+for i in num:
+    heapq.heappush(pq,i)
 
+while len(pq) > 1:
+    x1 = heappop(pq)
+    x2 = heappop(pq)
+
+    answer += x1+x2
+    heapq.heappush(pq,x1+x2)
 print(answer)
