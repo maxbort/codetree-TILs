@@ -4,10 +4,11 @@ input = sys.stdin.readline
 
 n = int(input())
 b_card = [int(input()) for _ in range(n)]
+b_set = set(b_card)
 a_card = []
 answer = 0
 for i in range(1,2*n+1):
-    if i not in b_card:
+    if i not in b_set:
         a_card.append(i)
 
 answer = 0
