@@ -9,9 +9,13 @@ a_card = [i for i in range(2*n + 1)]
 
 answer = 0
 for i in b_card:
-    if i < 2*n:
-        if a_card[i+1] != 0:
-            a_card[i+1] == 0
+    a_card[i] = 0
+
+for i in b_card:
+    for j in range(i+1,len(a_card)):
+        if a_card[j] != 0:
+            a_card[j] = 0
             answer += 1
+            break
 
 print(answer)
