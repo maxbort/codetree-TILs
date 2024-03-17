@@ -16,9 +16,15 @@ if len(n) > 1:
             a = n //i
             answer += a
             n -= a * i
-    else:
+    if n[-1] == '3':
         n = int(n) - 13
         answer += 5
+        for i in coin:
+            a = n //i
+            answer += a
+            n -= a * i
+    else:
+        n = int(n)
         for i in coin:
             a = n //i
             answer += a
