@@ -2,7 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
-n = str(input())
+n = str(input().rstrip())
 
 coin = [5,2]
 
