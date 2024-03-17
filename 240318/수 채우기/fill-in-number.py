@@ -8,7 +8,7 @@ coin = [5,2]
 
 answer = 0
 
-if n[-1] == '1' or n[-1] == '3' and len(n) > 2:
+if n[-1] == '1' or n[-1] == '3' and len(n) > 1:
     if n[-1] == '1':
         n = int(n) - 21
         answer += 6
