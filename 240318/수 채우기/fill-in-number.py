@@ -16,7 +16,7 @@ if len(n) > 1:
             a = n //i
             answer += a
             n -= a * i
-    if n[-1] == '3':
+    elif n[-1] == '3':
         n = int(n) - 13
         answer += 5
         for i in coin:
