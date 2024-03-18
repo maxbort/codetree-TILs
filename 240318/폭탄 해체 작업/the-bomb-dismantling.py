@@ -5,11 +5,9 @@ MAX_TIME = 10000
 input = sys.stdin.readline
 
 n = int(input())
-time_limit = 1
 bomb_list = [list(map(int,input().split())) for _ in range(n)]
 
 bomb_list.sort(key = lambda x : x[1])
-
 pq = []
 bomb_idx = n-1
 answer = 0
