@@ -12,7 +12,6 @@ for _ in range(n):
     num_set[y] = x
 
 max_sum = 0
-answer = float('inf')
 while num_set:
     max_value = max(num_set.keys())
     min_value = min(num_set.keys())
@@ -35,6 +34,5 @@ while num_set:
         max_sum = max(max_sum, max_value + min_value)
         num_set.pop(max_value,None)
         num_set[min_value] = min_cnt
-
-    answer = min(answer,max_sum)
-print(answer)
+    
+print(max_sum)
