@@ -1,29 +1,22 @@
-import sys
-from collections import deque
+from sortedcontainers import SortedSet
 
-input = sys.stdin.readline
-
-c, n = map(int,input().split())
+c,n = tuple(map(int,input().split()))
 
 red_stone = [int(input()) for _ in range(c)]
-black_stone = [list(map(int,input().split())) for _ in range(n)]
+black_stone = [tuple(map(int,input().split())) for _ in range(n)]
 
-red_stone.sort(reverse=True)
-black_stone.sort(key=lambda x : (-x[1],x[0]))
-black_stone = deque(black_stone)
+red_s = SortedSet(red_stone)
+black_stone.sort(key=lambda x : x[1])
 
 answer = 0
 
-for i in red_stone:
-    n = 0
-    m = len(black_stone)
-    while n < m:
-        x,y = black_stone.popleft()
-        if x <= i <= y:
+for a,b in black_stone:
+    idx = red_s.bisect_left(a)
+    if idx != len(red_s):
+        ti = red_s[idx]
+
+        if ti <= b:
             answer += 1
-            break
-        else:
-            black_stone.append((x,y))
-            n += 1
-        
+            red_s.remove(ti)
+
 print(answer)
