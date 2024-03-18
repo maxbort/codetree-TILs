@@ -1,5 +1,5 @@
 import sys
-
+from itertools import combinations
 input = sys.stdin.readline
 
 n,k = map(int,input().split())
@@ -18,6 +18,11 @@ answer = 0
 for key,value in sum_dict.items():
     a = k - key
     if a in sum_dict:
-        answer += min(value,sum_dict[a])
+        t = min(value,sum_dict[a])
         sum_dict[a] = 0
+        if t == 1:
+            answer += 1
+        else:
+            if t != 0:
+                answer += (t*(t-1))//2
 print(answer)
