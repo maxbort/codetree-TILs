@@ -23,6 +23,5 @@ for key,value in sum_dict.items():
         if t == 1:
             answer += 1
         else:
-            if t != 0:
-                answer += (t*(t-1))//2
+            answer += (t*(t-1))//2
 print(answer)
