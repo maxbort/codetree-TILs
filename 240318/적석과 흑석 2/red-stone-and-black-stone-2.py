@@ -9,7 +9,7 @@ red_stone = [int(input()) for _ in range(c)]
 black_stone = [list(map(int,input().split())) for _ in range(n)]
 
 red_stone.sort()
-black_stone.sort(key=lambda x : (x[1],-x[0]))
+black_stone.sort(key=lambda x : (x[1],x[0]))
 black_stone = deque(black_stone)
 
 answer = 0
