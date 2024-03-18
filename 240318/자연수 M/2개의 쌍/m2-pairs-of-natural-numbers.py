@@ -32,7 +32,7 @@ while len(num_set) > 1:
     else:
         min_cnt -= max_cnt
         max_sum = max(max_sum, max_value + min_value)
-        num_set.appendleft(min_value,min_cnt)
+        num_set.appendleft((min_value,min_cnt))
 
 
     # max_value = max(num_set.keys())
