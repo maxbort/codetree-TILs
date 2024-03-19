@@ -29,9 +29,10 @@ for i in c_list:
             dict_2[a] = 1
 
 answer = 0
+
 for k,v in dict_1.items():
     want_know = -k
     if want_know in dict_2:
         tmp = dict_2[want_know]
-        answer += min(v,tmp)
+        answer += v*tmp
 print(answer)
