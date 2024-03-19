@@ -14,9 +14,9 @@ for a in num_list:
 
 sorted_di = sorted(di.items(), key=lambda x : (-x[1], -x[0]))
 
-m = 1
-for k,v in sorted_di:
-    print(k,end=' ')
+m = 0
+for key,v in sorted_di:
+    print(key,end=' ')
     m += 1
-    if m > k:
+    if m == k:
         break
