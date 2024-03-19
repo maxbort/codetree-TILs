@@ -7,19 +7,17 @@ n = int(input())
 word_list = [str(input().rstrip()) for _ in range(n)]
 
 answer = 0
+di = {}
 for i in range(n):
+    word_list[i] = sorted(word_list[i])
     set_word = set(word_list[i])
-    tmp = 1
-    for j in range(i+1,n):
-        flag = True
-        for k in set_word:
-            if word_list[i].count(k) != word_list[j].count(k):
-                flag = False
-                break
-        if flag:
-            tmp += 1
-        
-    answer = max(answer,tmp)
+    word_cnt = ""
+    for k in set_word:
+        word_cnt = word_cnt + k + str(word_list[i].count(k))
+    if word_cnt in di:
+        di[word_cnt] += 1
+    else:
+        di[word_cnt] = 1
 
-
-print(answer)
+a = di.values()
+print(max(a))
