@@ -36,10 +36,12 @@ for i in range(n-1,0,-1):
         last_p = i
         break
 
-
-a= max(dist,key= lambda x : x[1])
-b = min(dist,key=lambda x : x[1])
-answer = b[1]
+if dist:
+    a= max(dist,key= lambda x : x[1])
+    b = min(dist,key=lambda x : x[1])
+    answer = b[1]
+else:
+    answer = float('inf')
 
 new_one = (a[0]+a[2])//2
 
@@ -52,7 +54,6 @@ elif seat[-1] == '0' and seat[-2] =='0':
     temp = min(b[1],n-last_p-1)
     answer = max(temp,answer)
 else:
-   
     answer = min(answer,new_one-a[0],a[2]-new_one)
 
 print(answer)
