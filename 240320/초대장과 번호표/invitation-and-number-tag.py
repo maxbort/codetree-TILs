@@ -8,8 +8,9 @@ group=[list(map(int,input().split())) for _ in range(g)]
 group.sort(key=lambda x : len(x))
 invite = set()
 invite.add(1)
-
-for _ in range(2):
+flag = True
+while flag:
+    flag = False
     for i in group:
         k = i[0]
         num = i[1:]
@@ -21,4 +22,5 @@ for _ in range(2):
                 not_invite.append(check)
         if len(not_invite) == 1:
             invite.add(not_invite[0])
+            flag = True
 print(len(invite))
