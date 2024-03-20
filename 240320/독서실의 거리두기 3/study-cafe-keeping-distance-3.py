@@ -19,9 +19,13 @@ for i in range(1,n):
 a= max(dist,key= lambda x : x[1])
 b = min(dist,key=lambda x : x[1])
 answer = b[1]
-for i in range(a[0]+2, (a[0]+a[2])//2+1):
+
+for i in range(a[0]+2, a[2]):
     if  i-a[0] <= answer and a[2]-i <= answer:
-        answer = i-a[0]
+        if i-a[0] > a[2]-i:
+            answer = i-a[0]-1
+        else:
+            answer = a[2]-i
 if seat.count('0') < 3:
     print(1)
 else:   
