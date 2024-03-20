@@ -53,7 +53,7 @@ if dist:
     else:
         answer = min(answer,new_one-a[0],a[2]-new_one)
 else:
-    answer = float('inf')
-    answer = min(answer,first_p,n-last_p-1)
+    answer = 0
+    answer = max(answer,first_p,n-last_p-1)
 
 print(answer)
