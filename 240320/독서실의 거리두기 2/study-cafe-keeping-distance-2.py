@@ -42,19 +42,18 @@ if dist:
     answer = b[1]
     new_one = (a[0]+a[2])//2
 
+    if seat[0] == '0' and seat[1] =='0':
+        answer = min(answer,new_one-a[0],a[2]-new_one)
+        temp = min(b[1],first_p)
+        answer = max(temp,answer)
+    elif seat[-1] == '0' and seat[-2] =='0':
+        answer = min(answer,new_one-a[0],a[2]-new_one)
+        temp = min(b[1],n-last_p-1)
+        answer = max(temp,answer)
+    else:
+        answer = min(answer,new_one-a[0],a[2]-new_one)
 else:
     answer = float('inf')
-
-
-if seat[0] == '0' and seat[1] =='0':
-    answer = min(answer,new_one-a[0],a[2]-new_one)
-    temp = min(b[1],first_p)
-    answer = max(temp,answer)
-elif seat[-1] == '0' and seat[-2] =='0':
-    answer = min(answer,new_one-a[0],a[2]-new_one)
-    temp = min(b[1],n-last_p-1)
-    answer = max(temp,answer)
-else:
-    answer = min(answer,new_one-a[0],a[2]-new_one)
+    answer = min(answer,first_p,n-last_p-1)
 
 print(answer)
