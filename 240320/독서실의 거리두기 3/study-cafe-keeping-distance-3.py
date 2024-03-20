@@ -22,4 +22,7 @@ answer = b[1]
 for i in range(a[0]+2, (a[0]+a[2])//2+1):
     if  i-a[0] <= answer and a[2]-i <= answer:
         answer = i-a[0]
-print(answer)
+if seat.count('0') < 3:
+    print(answer)
+else:   
+    print(answer)
