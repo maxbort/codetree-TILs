@@ -18,4 +18,4 @@ for i in range(1,n):
 
 a= max(dist,key= lambda x : x[1])
 b = min(dist,key=lambda x : x[1])
-print(b)
+print(b[1])
