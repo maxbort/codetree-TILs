@@ -3,7 +3,7 @@ input = sys.stdin.readline
 
 A,B,x,y = map(int,input().split())
 
-a = B-A
+a = abs(B-A)
 b = abs(A-x) + abs(B-y)
 c = abs(A-y) + abs(B-x)
 
