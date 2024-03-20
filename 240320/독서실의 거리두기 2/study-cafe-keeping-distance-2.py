@@ -40,10 +40,12 @@ new_one = (a[0]+a[2])//2
 
 if seat[0] == '0':
     answer = min(answer,new_one-a[0],a[2]-new_one)
-    answer = max(answer,first_p)
+    temp = min(b[1],first_p)
+    answer = max(temp,answer)
 elif seat[-1] == '0':
     answer = min(answer,new_one-a[0],a[2]-new_one)
-    answer = max(answer,n-last_p-1)
+    temp = min(b[1],n-last_p-1)
+    answer = max(temp,answer)
 else:
     answer = min(answer,new_one-a[0],a[2]-new_one)
 print(answer)
