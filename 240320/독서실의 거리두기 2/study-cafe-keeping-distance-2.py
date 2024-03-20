@@ -38,17 +38,12 @@ answer = b[1]
 
 new_one = (a[0]+a[2])//2
 
-answer = min(answer,new_one-a[0],a[2]-new_one)
-
-answer = max(answer,first_p-0,n-last_p-1)
+if seat[0] == '0':
+    answer = min(answer,new_one-a[0],a[2]-new_one)
+    answer = max(answer,first_p)
+elif seat[-1] == '0':
+    answer = min(answer,new_one-a[0],a[2]-new_one)
+    answer = max(answer,n-last_p-1)
+else:
+    answer = min(answer,new_one-a[0],a[2]-new_one)
 print(answer)
-# for i in range(a[0]+2, a[2]):
-#     if  i-a[0] <= answer and a[2]-i <= answer:
-#         if i-a[0] > a[2]-i:
-#             answer = i-a[0]-1
-#         else:
-#             answer = a[2]-i
-# if seat.count('0') < 3:
-#     print(1)
-# else:   
-#     print(answer)
