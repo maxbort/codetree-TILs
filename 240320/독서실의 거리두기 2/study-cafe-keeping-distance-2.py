@@ -4,8 +4,11 @@ input = sys.stdin.readline
 
 n = int(input())
 
-
 seat = list(input().rstrip())
+if n == 2:
+    if '1' in seat:
+        print(1)
+        sys.exit()
 
 dist = []
 tmp = [0,1,0]
@@ -50,4 +53,5 @@ elif seat[-1] == '0' and seat[-2] =='0':
     answer = max(temp,answer)
 else:
     answer = min(answer,new_one-a[0],a[2]-new_one)
+
 print(answer)
