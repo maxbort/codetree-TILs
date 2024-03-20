@@ -40,10 +40,11 @@ if dist:
     a= max(dist,key= lambda x : x[1])
     b = min(dist,key=lambda x : x[1])
     answer = b[1]
+    new_one = (a[0]+a[2])//2
+
 else:
     answer = float('inf')
 
-new_one = (a[0]+a[2])//2
 
 if seat[0] == '0' and seat[1] =='0':
     answer = min(answer,new_one-a[0],a[2]-new_one)
