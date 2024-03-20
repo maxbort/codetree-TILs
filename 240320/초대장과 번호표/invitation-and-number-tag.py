@@ -1,41 +1,69 @@
-from collections import deque
+import sys
 
-# 변수 선언 및 입력:
-n, g = tuple(map(int, input().split()))
+input = sys.stdin.readline
 
-invited = [False] * n
-# 각 그룹마다 초대장을 받지 못한 사람들을 관리해줍니다.
-groups = [set() for _ in range(g)]
-# 각 사람이 어떤 그룹에 속하는지를 관리해줍니다.
-people_groups = [[] for _ in range(n)]
+n,g =map(int,input().split())
 
-q = deque()
-ans = 0
+group=[list(map(int,input().split())) for _ in range(g)]
+group.sort(key=lambda x : len(x))
+invite = set()
+invite.add(1)
+flag = True
+while flag:
+    flag = False
+    for i in group:
+        k = i[0]
+        num = i[1:]
+        not_invite =[]
+        for check in num:
+            if check in invite:
+                continue
+            else:
+                not_invite.append(check)
+        if len(not_invite) == 1:
+            invite.add(not_invite[0])
+            flag = True
+print(len(invite))
 
-for i in range(g):
-    nums = list(map(int, input().split()))[1:]
-    for num in nums:
-        num -= 1
-        groups[i].add(num)
-        people_groups[num].append(i)
 
-q.append(0)
-invited[0] = True
-while q:
-    x = q.popleft()
-    ans += 1
+# from collections import deque
 
-    # x가 들어있는 그룹에서 x를 지웁니다.
-    # hashset에는 그룹에서 초대받지 않은 인원만을 남깁니다.
-    for g_num in people_groups[x]:
-        # 해당 그룹에서 x를 지웁니다.
-        groups[g_num].remove(x)
-        # 초대받지 않은 인원이 한명밖에 없다면 초대합니다.
-        if len(groups[g_num]) == 1:
-            p_num = list(groups[g_num])[0]
-            if not invited[p_num]:
-                invited[p_num] = True
-                q.append(p_num)
+# # 변수 선언 및 입력:
+# n, g = tuple(map(int, input().split()))
 
-# 초대장을 받는 인원을 출력합니다.
-print(ans)
+# invited = [False] * n
+# # 각 그룹마다 초대장을 받지 못한 사람들을 관리해줍니다.
+# groups = [set() for _ in range(g)]
+# # 각 사람이 어떤 그룹에 속하는지를 관리해줍니다.
+# people_groups = [[] for _ in range(n)]
+
+# q = deque()
+# ans = 0
+
+# for i in range(g):
+#     nums = list(map(int, input().split()))[1:]
+#     for num in nums:
+#         num -= 1
+#         groups[i].add(num)
+#         people_groups[num].append(i)
+
+# q.append(0)
+# invited[0] = True
+# while q:
+#     x = q.popleft()
+#     ans += 1
+
+#     # x가 들어있는 그룹에서 x를 지웁니다.
+#     # hashset에는 그룹에서 초대받지 않은 인원만을 남깁니다.
+#     for g_num in people_groups[x]:
+#         # 해당 그룹에서 x를 지웁니다.
+#         groups[g_num].remove(x)
+#         # 초대받지 않은 인원이 한명밖에 없다면 초대합니다.
+#         if len(groups[g_num]) == 1:
+#             p_num = list(groups[g_num])[0]
+#             if not invited[p_num]:
+#                 invited[p_num] = True
+#                 q.append(p_num)
+
+# # 초대장을 받는 인원을 출력합니다.
+# print(ans)
