@@ -10,7 +10,7 @@ seat = list(input().rstrip())
 dist = []
 tmp = [0,1,0]
 flag = False
-for i in range(1,n):
+for i in range(n):
 
     if seat[i] == '1':
         if flag:
