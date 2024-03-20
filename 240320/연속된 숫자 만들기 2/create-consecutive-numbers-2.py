@@ -6,7 +6,6 @@ a,b,c = map(int,input().split())
 answer = 0
 
 while True:
-    print(a,b,c)
     if b-a == 1 and c-b == 1:
         break
     else:
