@@ -14,7 +14,6 @@ dist = []
 tmp = [0,1,0]
 flag = False
 for i in range(n):
-
     if seat[i] == '1':
         if flag:
             tmp[-1] = i
@@ -22,6 +21,7 @@ for i in range(n):
             tmp = [i,1,0]
         else:
             flag = True
+            tmp=[i,0,0]
     else:
         if flag:
             tmp[1]+= 1
@@ -52,6 +52,7 @@ elif seat[-1] == '0' and seat[-2] =='0':
     temp = min(b[1],n-last_p-1)
     answer = max(temp,answer)
 else:
+   
     answer = min(answer,new_one-a[0],a[2]-new_one)
 
 print(answer)
