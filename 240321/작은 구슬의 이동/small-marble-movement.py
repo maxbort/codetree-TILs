@@ -6,24 +6,22 @@ n,t = map(int,input().split())
 
 x,y,d = map(str,input().rstrip().split())
 
-x,y = int(x)-1,int(y)-1
+x,y = int(x),int(y)
 
+cnt = 0
 for _ in range(t):
-    if y < 0:
+    cnt += 1
+    if y == 1 and d == 'L':
         d = 'R'
-        y = 1
         continue
-    elif y > n-1:
+    elif y == n and d == 'R':
         d = 'L'
-        y = n-2
         continue
-    elif x < 0:
-        d = 'U'
-        x = 1
-        continue
-    elif x > n-1:
+    elif x == 1 and d == 'U':
         d = 'D'
-        x = n-2
+        continue
+    elif x == n and d == 'D':
+        d = 'U'
         continue
 
 
@@ -32,8 +30,8 @@ for _ in range(t):
     elif d == 'R':
         y += 1
     elif d == 'U':
-        x += 1
-    elif d == 'D':
         x -= 1
+    elif d == 'D':
+        x += 1
     
-print(x+1,y+1)
+print(x,y)
