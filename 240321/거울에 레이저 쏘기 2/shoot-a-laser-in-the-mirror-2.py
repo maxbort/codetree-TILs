@@ -30,7 +30,7 @@ dy = [0,-1,0,1]
 answer = 0
 while 0 <= x < n and 0 <= y < n:
     answer += 1
-    if mirror[x][y] == '/':
+    if mirror[x][y] == '/' or mirror[x][y] == '//':
         if d == 0:
             d = 1
         elif d == 1:
