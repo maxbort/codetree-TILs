@@ -20,13 +20,12 @@ elif (point-1)//n == 2:
     x,y = n-1, n - (point - 2*n)
     d = 2
 else:
-    x,y = point - (3*n),0
+    x,y = abs((point - 4 * n)),0
     d = 3
 
 #남서북동
 dx = [1,0,-1,0]
 dy = [0,-1,0,1]
-
 answer = 0
 while 0 <= x < n and 0 <= y < n:
     answer += 1
