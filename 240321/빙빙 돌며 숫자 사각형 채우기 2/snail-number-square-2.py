@@ -22,7 +22,7 @@ while cnt <= n*m:
     nx = x + dx[d]
     ny = y + dy[d]
 
-    if 0 <= nx < n and 0 <= ny < m:
+    if 0 <= nx < m and 0 <= ny < n:
         if graph[nx][ny] == 0:
             x,y = nx,ny
         else:
