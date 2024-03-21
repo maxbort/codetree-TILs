@@ -41,7 +41,7 @@ while 0 <= x < n and 0 <= y < n:
             d = 2
         x += dx[d]
         y += dy[d]
-    else:
+    elif mirror[x][y] == '\\':
         if d == 0:
             d = 3
         elif d == 3:
