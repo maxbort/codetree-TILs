@@ -8,9 +8,7 @@ x,y,d = map(str,input().rstrip().split())
 
 x,y = int(x),int(y)
 
-cnt = 0
 for _ in range(t):
-    cnt += 1
     if y == 1 and d == 'L':
         d = 'R'
         continue
