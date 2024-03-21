@@ -19,7 +19,7 @@ while cnt < m*n+1:
     
     nx = x + dx[d]
     ny = y + dy[d]
-    if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] == 0:
+    if 0 <= nx < m and 0 <= ny < n and graph[nx][ny] == 0:
         x += dx[d]
         y += dy[d]
 
