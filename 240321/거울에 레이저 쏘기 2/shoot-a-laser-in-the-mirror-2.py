@@ -14,7 +14,7 @@ if point // n == 0:
     x,y = 0, point-1
     d = 0
 elif point //n == 1:
-    x, y = point % n -1 , n-1
+    x, y = point -n , n-1
     d = 1
 elif point//n == 2:
     x,y = n-1, n - (point - 2*n)
