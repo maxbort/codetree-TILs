@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 n, m = map(int,input().split())
 
-graph = [[0 for _ in range(n)] for _ in range(m)]
+graph = [[0 for _ in range(m)] for _ in range(n)]
 
 d = 0
 
@@ -22,7 +22,7 @@ while cnt <= n*m:
     nx = x + dx[d]
     ny = y + dy[d]
 
-    if 0 <= nx < m and 0 <= ny < n:
+    if 0 <= nx < n and 0 <= ny < m:
         if graph[nx][ny] == 0:
             x,y = nx,ny
         else:
@@ -37,5 +37,5 @@ while cnt <= n*m:
 
 for i in graph:
     for j in i:
-        print(j,end=' ')
+        print(j, end = ' ')
     print()
