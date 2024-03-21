@@ -6,12 +6,12 @@ n = int(input())
 
 mirror = [list(input().rstrip()) for _ in range(n)]
 
-point = int(input())
+point = int(input()) -1
 
 x,y = 0,0
 d = 0
 if point // n == 0:
-    x,y = 0,point-1
+    x,y = 0, point-1
     d = 0
 elif point //n == 1:
     x, y = point % n -1 , n-1
