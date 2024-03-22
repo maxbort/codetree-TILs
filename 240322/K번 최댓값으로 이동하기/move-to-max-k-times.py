@@ -22,20 +22,23 @@ visited[start_x-1][start_y-1] = True
 for _ in range(k):
     x, y = q.popleft()
     a,b = n,n
+    tmp = []
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
 
         if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
             if graph[nx][ny] < check:
-                if nx <= a:
-                    if ny <= b:
-                        a,b = nx,ny
-    if a < n and b < n:
-        visited[a][b] = True
-        q.append((a,b))
-    else:
+                tmp.append((graph[nx][ny],nx,ny))
+    tmp.sort(key=lambda x : (-x[0], x[1],x[2]))
+    
+    if not tmp:
         print(x+1,y+1)
         sys.exit()
+    a,b = tmp[0][1],tmp[0][2]
+    
+    visited[a][b] = True
+    q.append((a,b))
+
 a,b = q.popleft()
 print(a+1,b+1)
