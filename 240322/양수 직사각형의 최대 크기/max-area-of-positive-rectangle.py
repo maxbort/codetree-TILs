@@ -8,7 +8,7 @@ n,m = map(int,input().split())
 graph = [list(map(int,input().split())) for _ in range(n)]
 
 
-answer = 0
+answer = -1
 for i in range(n):
     for j in range(m):
         for k in range(i,n):
@@ -19,7 +19,7 @@ for i in range(n):
                         if graph[a][b] > 0:
                             tmp += 1
                         else:
-                            tmp = 0
+                            tmp = -1
                             break
                 answer = max(answer,tmp)
 
