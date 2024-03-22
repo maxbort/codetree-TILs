@@ -8,12 +8,10 @@ h_info = list(map(int,input().split()))
 
 answer = float('inf')
 
-for i in range(n):
-    check =h_info[i]
-    h_info.sort(key=lambda x : abs(x-check))
-    tmp = 0
-    for j in range(t):
-        tmp += abs(check-h_info[j])
-    answer = min(answer,tmp)
+h_info.sort(key=lambda x : abs(x-h))
+tmp = 0
+for j in range(t):
+    tmp += abs(h-h_info[j])
+answer = min(answer,tmp)
 
 print(answer)
