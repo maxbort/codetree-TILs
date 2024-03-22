@@ -13,11 +13,11 @@ for i in range(n-1):
     now_s,now_e = m_list[i]
     check = 0
     for j in range(i+1,n):
-        if check > 1:
+        if check > 0:
             answer += 1
             break
         next_s,next_e = m_list[i+1]
-        if next_s >= now_e or next_e > now_e:
+        if next_s >= now_e:
             break
         if next_s < now_e and next_e <= now_e:
             check += 1
