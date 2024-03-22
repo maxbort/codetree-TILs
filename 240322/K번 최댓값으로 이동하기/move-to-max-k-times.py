@@ -28,8 +28,9 @@ for _ in range(k):
 
         if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
             if graph[nx][ny] < check:
-                if ny < b:
-                    a,b = nx,ny
+                if nx <= a:
+                    if ny <= b:
+                        a,b = nx,ny
     if a < n and b < n:
         visited[a][b] = True
         q.append((a,b))
