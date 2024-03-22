@@ -17,12 +17,13 @@ visited = [[False for _ in range(n)] for _ in range(n)]
 while q:
     x,y = q.popleft()
     visited[x][y] = True
-
+    if visited[-1][-1]:
+        break
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
 
-        if 0 <= nx < n and 0 <= ny < n and graph[nx][ny]==1 and not visited[nx][ny] :
+        if 0 <= nx < n and 0 <= ny < n and graph[nx][ny] == 1 and not visited[nx][ny] :
             q.append((nx,ny))
     
 if visited[-1][-1]:
