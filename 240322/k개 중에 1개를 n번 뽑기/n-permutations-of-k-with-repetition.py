@@ -12,5 +12,7 @@ for i in range(k):
 
 answer = list(product(num_list,repeat=n))
 
-for i,j in answer:
-    print(i,j)
+for a in answer:
+    for b in a:
+        print(b,end=' ')
+    print()
