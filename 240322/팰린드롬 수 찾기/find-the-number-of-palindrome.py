@@ -9,8 +9,8 @@ for check in range(x,y+1):
     check = str(check)
     c_range = len(check)
     flag = True
-    for i in range(c_range//2 + 1):
-        if check[i] != check[-i]:
+    for i in range((c_range//2) + 1):
+        if check[i] != check[-(i+1)]:
             flag = False
             break
     if flag:
