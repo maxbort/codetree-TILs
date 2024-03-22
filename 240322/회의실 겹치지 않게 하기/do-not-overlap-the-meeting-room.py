@@ -17,9 +17,9 @@ for i in range(n-1):
             answer += 1
             break
         next_s,next_e = m_list[i+1]
-        if next_s <= now_e and next_e <= now_e:
-            check += 1
-        else:
+        if next_s >= now_e:
             break
+        if next_s < now_e and next_e <= now_e:
+            check += 1
         
 print(answer)
