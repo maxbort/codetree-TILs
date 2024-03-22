@@ -22,7 +22,7 @@ while q:
         nx = x + dx[i]
         ny = y + dy[i]
 
-        if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and graph[nx][ny]:
+        if 0 <= nx < n and 0 <= ny < n and graph[nx][ny]==1 and not visited[nx][ny] :
             q.append((nx,ny))
     
 if visited[-1][-1]:
