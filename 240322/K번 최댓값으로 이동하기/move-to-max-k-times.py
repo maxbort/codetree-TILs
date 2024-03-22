@@ -32,7 +32,7 @@ for _ in range(k):
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-            if 0 <= nx < n and 0 <= ny < n and graph[nx][ny] < check and not visited[nx][ny] and not real_visited[nx][ny]:
+            if 0 <= nx < n and 0 <= ny < n and graph[nx][ny] < check and not visited[nx][ny]:
                 q.append((nx,ny))
                 visited[nx][ny] = True
                 tmp.append([graph[nx][ny],nx,ny])
