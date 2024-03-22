@@ -22,12 +22,12 @@ k =1
 answer = 0
 answer_k = 0
 while True:
-    tmp = 
+    tmp = 0
     visited = [[False for _ in range(m)] for _ in range(n)]
     for i in range(n):
         for j in range(m):
             if graph[i][j] > k and not visited[i][j]:
-                tmp += 0
+                tmp += 1
                 dfs(i,j,k,visited)
     if answer < tmp:
         answer = tmp
