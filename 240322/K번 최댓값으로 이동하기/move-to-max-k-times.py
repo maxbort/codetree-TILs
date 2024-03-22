@@ -14,31 +14,27 @@ visited = [[False for _ in range(n)] for _ in range(n)]
 
 
 q = deque()
-
 check = graph[start_x-1][start_y-1]
-visited[start_x-1][start_y-1] = True
 q.append((start_x-1,start_y-1))
 
+visited[start_x-1][start_y-1] = True
 
 for _ in range(k):
-    x,y = q.popleft()
+    x, y = q.popleft()
     a,b = n,n
-    tmp = 0
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
 
-        if 0 <= nx < n and 0 <= ny < n:
-            if not visited[nx][ny]:
-                if graph[nx][ny] < check and tmp <= graph[nx][ny]:
-                    tmp = graph[nx][ny]
-                    if ny < b:
-                        a,b = nx,ny
-    if a == n or b == n:
+        if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
+            if graph[nx][ny] < check:
+                if ny < b:
+                    a,b = nx,ny
+    if a < n and b < n:
+        visited[a][b] = True
+        q.append((a,b))
+    else:
         print(x+1,y+1)
         sys.exit()
-    visited[a][b] = True
-    q.append((a,b))
-    
-answer_y,answer_x = q.popleft()
-print(answer_x+1,answer_y+1)
+a,b = q.popleft()
+print(a+1,b+1)
