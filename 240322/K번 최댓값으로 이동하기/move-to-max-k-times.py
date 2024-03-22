@@ -35,7 +35,7 @@ for _ in range(k):
                     if ny < b:
                         a,b = nx,ny
     if a == n or b == n:
-        print(x,y)
+        print(x+1,y+1)
         sys.exit()
     visited[a][b] = True
     q.append((a,b))
