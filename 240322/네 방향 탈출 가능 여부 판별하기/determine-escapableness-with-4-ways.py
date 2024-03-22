@@ -25,7 +25,6 @@ while q:
         if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and graph[nx][ny]:
             q.append((nx,ny))
     
-print(visited)
 if visited[-1][-1]:
     print(1)
 else:
