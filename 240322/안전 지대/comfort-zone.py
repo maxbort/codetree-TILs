@@ -20,7 +20,7 @@ def dfs(x,y,k,visited):
  
 k =1
 answer = 0
-answer_k = 0
+answer_k = 1
 while True:
     tmp = 0
     visited = [[False for _ in range(m)] for _ in range(n)]
