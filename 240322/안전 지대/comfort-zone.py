@@ -35,4 +35,4 @@ while True:
     if tmp == 0:
         break
     k += 1
-print(answer, answer_k)
+print(answer_k,answer)
