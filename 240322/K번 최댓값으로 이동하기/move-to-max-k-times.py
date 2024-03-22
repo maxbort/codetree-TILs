@@ -14,31 +14,35 @@ visited = [[False for _ in range(n)] for _ in range(n)]
 
 
 q = deque()
-check = graph[start_x-1][start_y-1]
-q.append((start_x-1,start_y-1))
+start_x,start_y = start_x-1,start_y-1
 
-visited[start_x-1][start_y-1] = True
+q.append((start_x,start_y))
+
+visited[start_x][start_y] = True
+real_visited = [[False for _ in range(n)] for _ in range((n))]
 
 for _ in range(k):
-    x, y = q.popleft()
-    a,b = n,n
+    visited = [[False for _ in range(n)] for _ in range(n)]
+    check = graph[start_x][start_y]
+    visited[start_x][start_y] = True
+    real_visited[start_x][start_y] = True
     tmp = []
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-
-        if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-            if graph[nx][ny] < check:
-                tmp.append((graph[nx][ny],nx,ny))
-    tmp.sort(key=lambda x : (-x[0], x[1],x[2]))
-    
+    while q:
+        x,y = q.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if 0 <= nx < n and 0 <= ny < n and graph[nx][ny] < check and not visited[nx][ny] and not real_visited[nx][ny]:
+                q.append((nx,ny))
+                visited[nx][ny] = True
+                tmp.append([graph[nx][ny],nx,ny])
     if not tmp:
         print(x+1,y+1)
         sys.exit()
-    a,b = tmp[0][1],tmp[0][2]
     
-    visited[a][b] = True
-    q.append((a,b))
-
-a,b = q.popleft()
-print(a+1,b+1)
+    tmp.sort(key=lambda x: (-x[0],x[1],x[2]))
+                   
+    start_x,start_y = tmp[0][1],tmp[0][2]
+    q.append((start_x,start_y))
+    
+print(start_x+1,start_y+1)
