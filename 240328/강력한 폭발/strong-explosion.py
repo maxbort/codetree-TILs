@@ -11,6 +11,7 @@ answer = 0
 
 
 b_list = []
+
 def in_range(x,y):
     return 0 <= x < n and 0 <= y < n
 
@@ -22,7 +23,7 @@ def do_bomb(x,y,bomb_num):
     ]
 
     for i in range(5):
-        dx,dy = bomb_list[bomb_num][i]
+        dx,dy = bomb_list[bomb_num][i];
         nx,ny = x+dx, y+dy
         if in_range(nx,ny):
             field[nx][ny] = True
@@ -32,7 +33,7 @@ def count():
     for i in range(n):
         for j in range(n):
             field[i][j] = False
-            
+
     for i in range(n):
         for j in range(n):
             if graph[i][j]:
