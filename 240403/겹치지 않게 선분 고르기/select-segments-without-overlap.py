@@ -6,7 +6,7 @@ n = int(input())
 
 line_list = [list(map(int,input().split())) for _ in range(n)]
 candi = []
-
+line_list.sort()
 answer = 0
 
 def find_point(end_point,idx,candi):
