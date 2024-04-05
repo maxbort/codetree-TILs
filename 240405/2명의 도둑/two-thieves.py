@@ -28,16 +28,14 @@ def findMax(x,y,x2,y2,cnt,tmp,tmp2):
     tmp2.pop()
     findMax(x,y,x2,y2,cnt+1,tmp,tmp2)
 
-for i in range(n):
-    for j in range(n-m):
-        for k in range(n):
-            for l in range(n-m):
-                if i == k:
-                    if j+m < l:
-                        findMax(i,j,k,l,0,[],[])
-                    else:
-                        break
+for x in range(n):
+    for y in range(n-m+1):
+        for x2 in range(n):
+            for y2 in range(n-m+1):
+                if x == x2:
+                    if y+m < y2:
+                        findMax(x,y,x2,y2,0,[],[])
                 else:
-                    findMax(i,j,k,l,0,[],[])
+                    findMax(x,y,x2,y2,0,[],[])
 
 print(answer)
