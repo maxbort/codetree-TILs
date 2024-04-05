@@ -33,7 +33,7 @@ for x in range(n):
         for x2 in range(n):
             for y2 in range(n-m+1):
                 if x == x2:
-                    if y+m < y2:
+                    if y+m <= y2:
                         findMax(x,y,x2,y2,0,[],[])
                 else:
                     findMax(x,y,x2,y2,0,[],[])
