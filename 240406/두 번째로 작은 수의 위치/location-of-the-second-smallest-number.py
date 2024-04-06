@@ -14,7 +14,7 @@ check = 0
 for idx,num in enumerate(num_list):
     if num == first:
         continue
-    else:
+    elif num > first:
         if num < second:
             check == 0
             second = num
