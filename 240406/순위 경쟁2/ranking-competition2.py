@@ -35,7 +35,7 @@ for user,score in rank_change:
                 tmp = 'B'
                 answer += 1
     else:
-        if 'A' not in tmp or 'B' not in tmp:
+        if len(tmp) != 2:
             answer += 1
             tmp = 'AB'
 print(answer)
