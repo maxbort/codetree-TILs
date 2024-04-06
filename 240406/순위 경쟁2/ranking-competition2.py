@@ -18,7 +18,7 @@ for user,score in rank_change:
     a_score = rank.get('A')
     b_score = rank.get('B')
     if a_score > b_score:
-        if 'A' not in tmp:
+        if 'A' not in tmp or len(tmp) == 2:
             tmp += 'A'
             answer += 1
         else:
@@ -27,7 +27,7 @@ for user,score in rank_change:
                 answer += 1
     
     elif b_score > a_score:
-        if 'B' not in tmp:
+        if 'B' not in tmp or len(tmp) == 2:
             tmp += 'B'
             answer += 1
         else:
