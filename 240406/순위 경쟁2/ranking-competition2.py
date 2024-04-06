@@ -11,7 +11,7 @@ rank['A'] = 0
 rank['B'] = 0
 
 answer = 0
-tmp = ''
+tmp = 'AB'
 for user,score in rank_change:
 
     rank[user] += int(score)
