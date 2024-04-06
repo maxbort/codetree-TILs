@@ -21,7 +21,7 @@ for idx,num in enumerate(num_list):
             answer = idx+1
         elif num == check:
             check += 1
-if check > 1:
+if check >= 1:
     print(-1)
 else:
     print(answer)
