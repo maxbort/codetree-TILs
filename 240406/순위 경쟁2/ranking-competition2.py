@@ -24,7 +24,7 @@ for user,score in rank_change:
             else:
                 if len(tmp) == 2:
                     tmp = 'A'
-                    anwer += 1
+                    answer += 1
         
         elif b_score > a_score:
             if 'B' not in tmp:
