@@ -48,6 +48,9 @@ def bfs():
                 visited[nx][ny] = True
 
 def calc():
+    for i in range(n):
+        for j in range(n):
+            visited[i][j] = False
     bfs()
     cnt = 0
     for i in visited:
@@ -64,6 +67,8 @@ def findMax(moveList):
             graph[ix][iy] = 0
 
         answer = max(answer,calc())
+        for ix,iy in moveList:
+            graph[ix][iy] = 1
         return
 
     for ix,iy in stone_idx:
