@@ -7,7 +7,11 @@ n,k,m = map(int,input().split())
 
 graph = [list(map(int,input().split())) for _ in range(n)]
 
-start_point = [list(map(int,input().split())) for _ in range(k)]
+
+start_point = []
+for _ in range(k):
+    x,y = map(int,input().split())
+    start_point.append((x-1,y-1))
 visited = [[False for _ in range(n)] for _ in range(n)]
 
 dx = [-1,1,0,0]
@@ -58,6 +62,7 @@ def findMax(moveList):
     if len(moveList) == m:
         for ix,iy in moveList:
             graph[ix][iy] = 0
+
         answer = max(answer,calc())
         return
 
