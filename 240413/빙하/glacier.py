@@ -12,9 +12,10 @@ dy = [0,0,-1,1]
 
 
 answer = 0
-visited = [[False for _ in range(m)] for _ in range(n)]
 check = True
 while check:
+    visited = [[False for _ in range(m)] for _ in range(n)]
+
     ice_list = []
     q = deque()
     flag = True
@@ -48,6 +49,7 @@ while check:
         answer2 += 1
 
     answer += 1
+
     check = False
     for i in range(n):
         for j in range(m):
