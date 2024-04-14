@@ -23,3 +23,4 @@ for i in range(n):
             if j >= n-1:
                 print(answer)
                 sys.exit()
+print(answer)
