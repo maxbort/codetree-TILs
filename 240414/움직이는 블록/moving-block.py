@@ -12,15 +12,17 @@ std = sum(block) // n
 end = n-1
 start = 0
 
-answer = -1
+answer = 0
 while end > start:
     max_block = block[end]
     min_block = block[start]
 
     if min_block == std:
         start += 1
+        continue
     if max_block == std:
         end -= 1
+        continue
     
     block[end] -= 1
     block[start] += 1
