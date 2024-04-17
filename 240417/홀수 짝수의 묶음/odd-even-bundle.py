@@ -27,11 +27,11 @@ else:
         while True:
             odd -= 2
             even += 1
-            if even+1 == odd:
+            if even >= odd:
+                break
+            if even + 1 == odd:
                 odd -= 2
                 break
-            if even > odd:
-                break
-
         
+
         print(odd+even)
