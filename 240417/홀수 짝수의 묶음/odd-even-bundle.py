@@ -13,8 +13,7 @@ for num in num_list:
         even+= 1
     else:
         odd+=1
-print(odd)
-print(even)
+
 if even == odd or even == odd + 1:
     print(even+odd)
 else:
