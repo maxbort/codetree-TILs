@@ -13,19 +13,19 @@ for num in num_list:
         even+= 1
     else:
         odd+=1
-
+print(odd)
+print(even)
 if even == odd or even == odd + 1:
     print(even+odd)
 else:
     if even > odd:
         while True:
             even -= 1
-            if even + 1 == odd:
+            if even == odd+1:
                 break
         print(even + odd)
     else:
         while True:
-
             odd -= 2
             even += 1
             if even+1 == odd:
