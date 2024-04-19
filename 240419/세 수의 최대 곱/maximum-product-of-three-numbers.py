@@ -21,11 +21,13 @@ for i in num_list:
 
 tmp1 = 1
 tmp2 = 1
+
 for i in p_list:
     tmp1 *= i
 if len(m_list) == 2:
     for j in m_list:
         tmp2 *= j
-tmp2 *= p_list[0]
+if p_list:
+    tmp2 *= p_list[0]
 
 print(max(tmp1,tmp2))
