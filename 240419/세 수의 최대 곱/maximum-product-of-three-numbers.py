@@ -6,64 +6,66 @@ n = int(input())
 
 num_list = list(map(int,input().split()))
 
-num_list.sort(key=lambda x : -abs(x))
-
-m_list = []
-p_list = []
+plus_list = []
+minus_list = []
+answer = 1
+if len(num_list) == 3:
+    for i in num_list:
+        answer *= i
+    print(answer)
+    sys.exit()
 
 for i in num_list:
-    if i >= 0 and len(p_list) < 3:
-        p_list.append(i)
-    elif i < 0 and len(m_list) < 3:
-        m_list.append(i)
-    
-    if len(p_list) == 3 and len(m_list) == 3:
-        break
-
-tmp1,tmp2 = -float('inf'), -float('inf')
-
-if len(m_list) == 1:
-    tmp2 = 1
-    tmp2 *= m_list[0]
-    check = 0
-    for j in range(n-1,0,-1):
-        if num_list[j] >= 0:
-            tmp2 *= num_list[j]
-            check += 1
-        if check == 2:
-            break
-    
-
-
-elif len(m_list) >= 2:
-    tmp2 = 1
-
-    tmp2 *= m_list[0]
-    tmp2 *= m_list[1]
-    if p_list:
-        tmp2 *= p_list[0]
+    if i >= 0:
+        plus_list.append(i)
     else:
-        tmp2 *= m_list[2]
+        minus_list.append(i)
+plus_list.sort(reverse=True)
+minus_list.sort()
 
-if len(p_list) == 1:
+check = 0
+if len(minus_list) == 0:
+    for i in plus_list:
+        answer *= i
+        check += 1
+        if check == 3:
+            print(answer)
+            sys.exit()
+
+elif len(minus_list) == 1:
+    for i in plus_list:
+        answer *= i
+        check += 1
+        if check == 3:
+            print(answer)
+            sys.exit()
+
+elif len(minus_list) == 2:
     tmp1 = 1
+    tmp2 = 1
+    tmp1 *= minus_list[0]
+    tmp1 *= minus_list[1]
+    tmp1 *= plus_list[0]
+    if len(plus_list) > 2:
+        for i in plus_list:
+            tmp2 *= i
+            check += 1
+            if check == 3:
+                answer = max(tmp1,tmp2)
+                print(answer)
+                sys.exit()
+                
 
-    tmp1 *= p_list[0]
-    tmp1 *= m_list[0]
-    tmp1 *= m_list[1]
-
-elif len(p_list) == 2:
-    tmp1 = 1
-    tmp1 *= p_list[0]
-    tmp1 *= p_list[1]
-    for j in range(n-1,0,-1):
-        if num_list[j] < 0:
-            tmp1 *= num_list[j]
-            break
-elif len(p_list) == 3:
-    tmp1 = 1
-    tmp1 *= p_list[0]
-    tmp1 *= p_list[1]
-    tmp1 *= p_list[2]
-
-print(max(tmp1,tmp2))
+else:
+    if len(plus_list) >= 3:
+        tmp1 = minus_list[0] * minus_list[1] * plus_list[0]
+        tmp2 = plus_list[0] * plus_list[1] * plus_list[2]
+        print(max(tmp1,tmp2))
+        sys.exit()
+    
+    elif 0 < len(plus_list) < 3:
+        print(minus_list[0] * minus_list[1] * plus_list[0])
+        sys.exit()
+    else:
+        print(minus_list[-1]*minus_list[-2]*minus_list[-3])
+        sys.exit()
