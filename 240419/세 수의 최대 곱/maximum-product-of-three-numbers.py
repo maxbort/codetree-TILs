@@ -11,7 +11,7 @@ num_list.sort(key=lambda x : -abs(x))
 m_list = []
 p_list = []
 for i in num_list:
-    if i > 0 and len(p_list) < 3:
+    if i >= 0 and len(p_list) < 3:
         p_list.append(i)
     elif i < 0 and len(m_list) < 2:
         m_list.append(i)
