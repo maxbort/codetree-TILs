@@ -1,7 +1,13 @@
 a = list(input())
 
-if len(a) == 1:
-    a[0] = '0'
+one_cnt = 0
+
+for i in a:
+    if i == '1':
+        one_cnt += 1
+
+if len(a) == one_cnt:
+    a[-1] = '0'
 else:
     for i in range(len(a)):
         if a[i] == '0':
