@@ -12,6 +12,6 @@ for i in arr:
 gap.sort()
 
 cost = 0
-for i in range(h):
+for i in range(t):
     cost += gap[i] 
 print(cost)
