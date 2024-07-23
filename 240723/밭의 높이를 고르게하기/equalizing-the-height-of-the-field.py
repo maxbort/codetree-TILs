@@ -1,17 +1,16 @@
+import sys
+
 n,h,t = map(int,input().split())
 arr = list(map(int,input().split()))
-arr.sort()
 
 gap = []
 
 for i in arr:
     gap.append(abs(i-h))
 
-#print(gap)
+min_cost = sys.maxsize
 
-gap.sort()
+for i in range(n-t+1):
+    min_cost = min(min_cost, sum(gap[i:i+t]))
 
-cost = 0
-for i in range(t):
-    cost += gap[i] 
-print(cost)
+print(min_cost)
