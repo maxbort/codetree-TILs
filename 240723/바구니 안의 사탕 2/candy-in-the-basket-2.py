@@ -4,7 +4,7 @@ d = [0] * 101
 
 for _ in range(n):
     a,b = map(int,input().split())
-    d[b] = a
+    d[b] += a
 
 max_val = 0
 for i in range(k, 101-k):
