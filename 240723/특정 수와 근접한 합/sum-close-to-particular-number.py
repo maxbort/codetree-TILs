@@ -8,5 +8,6 @@ total = sum(arr)
 
 for i in range(n-1):
     for j in range(i+1,n):
-        min_gap = min(min_gap, total - arr[i] - arr[j])
-print(abs(s - min_gap))
+        min_gap = min(min_gap ,abs(s -(total - arr[i] - arr[j])))
+
+print(min_gap)
