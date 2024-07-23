@@ -18,5 +18,6 @@ for i in range(n-len(b)+1):
 
         if flag:
             cnt += 1
+            break
 
 print(cnt)
