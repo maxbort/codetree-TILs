@@ -12,13 +12,11 @@ def array_cnt(temp_arr):
     global max_val
     l = len(temp_arr)
 
-    val = 0
     for i in range(0, l - 2):
+        val = 0
         for j in range(3):
             val += temp_arr[i+j]
         max_val = max(max_val, val)
-    
-    return max_val
 
 for i in range(n-1):
     for j in range(m-1):
@@ -32,11 +30,12 @@ for i in range(n-1):
         max_val = max(max_val , cnt - min_val)
 
 for i in range(n):
-    max_val = array_cnt(arr[i])
+    array_cnt(arr[i])
 
     temp = []
     for j in range(n):
         temp.append(arr[j][i])
     
-    max_val = array_cnt(temp)
+    array_cnt(temp)
+
 print(max_val)
