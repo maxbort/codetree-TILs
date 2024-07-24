@@ -13,9 +13,7 @@ def array_cnt(temp_arr):
     l = len(temp_arr)
 
     for i in range(0, l - 2):
-        val = 0
-        for j in range(3):
-            val += temp_arr[i+j]
+        val = sum(temp_arr[i:i+3])
         max_val = max(max_val, val)
 
 for i in range(n-1):
@@ -32,6 +30,7 @@ for i in range(n-1):
 for i in range(n):
     array_cnt(arr[i])
 
+for i in range(m):
     temp = []
     for j in range(n):
         temp.append(arr[j][i])
