@@ -6,21 +6,20 @@ arr = [
 
 def array_cnt(temp_arr):
     length = len(temp_arr)
-    cnt = 1
-    idx = 1
-
-    for i in range(idx, length):
-        if temp_arr[i] == temp_arr[i-1]:
-            cnt += 1
-            if cnt >= m:
-                return True
-        else:
-            if cnt >= m:
-                return True
+    
+    for i in range(length-1, 0, -1):
+        cnt = 1
+        for j in range(i-1,-1,-1):
+            if temp_arr[i] == temp_arr[j]:
+                cnt += 1
+                if cnt >= m:
+                    return True
             else:
-                cnt = 1
-        idx += 1
-
+                if cnt >= m:
+                    #print("yes temp_arr : {}".format(temp_arr))
+                    return True
+                else:
+                    break
     return False
 
 val = 0
