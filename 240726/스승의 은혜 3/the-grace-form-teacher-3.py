@@ -7,12 +7,12 @@ price = [
 
 max_val = 0
 
-price.sort()
-
 for i in range(n):
     val = 0
     temp = b
     price[i][0] //= 2
+
+    price.sort(key=lambda x : (x[0] + x[1]))
 
     for j in range(n):
 
