@@ -16,52 +16,24 @@ sick_history = [
 
 sick_history.sort(key = lambda x : x[1]) # 아파지기 시작한 순서대로 정렬
 
-max_pill = 0
+cheese = dict()
 
-possible_cheese = []
-impossible_cheese = []
+for i in range(m):
+    cheese[i] = []
 
-for ate_person, which_cheese, ate_time in eating_history:
-    flag = False
-    for sick_person, sick_time in sick_history:
-        if ate_person == sick_person:
-            flag = True
-            break
-    if not flag:
-        impossible_cheese.append(which_cheese)
+for sp,st in sick_history:
+    for ep,ec,et in eating_history:
+        if ep == sp and et < st:
+            cheese[ec-1].append(ep)
+
+max_val = 0
+for i in range(m):
+    if len(set(cheese[i])) == s:
+        sick_person = [0] * n
         
+        for ep, ec, et in eating_history:
+            if ec == i+1:
+                sick_person[ep-1] = 1
 
-for sick_person, sick_time in sick_history:
-    
-    for ate_person, which_cheese, ate_time in eating_history:
-
-        for t in range(sick_time):
-
-            if sick_person == ate_person and t > ate_time and which_cheese not in impossible_cheese:
-                possible_cheese.append(which_cheese)
-
-        for t in range(sick_time + 1, 101):
-
-            if sick_person == ate_person and t < ate_time:
-                impossible_cheese.append(which_cheese)
-
-                if which_cheese in possible_cheese:
-                    possible_cheese.remove(which_cheese)
-
-
-# print(possible_cheese)
-# print(impossible_cheese)
-
-visited = [False for _ in range(51)]
-for i in eating_history:
-    person, cheese, _ = i
-
-    # 이미 체크한 사람 제외
-    if visited[person] == True: 
-        continue
-
-    if cheese in possible_cheese:
-        max_pill += 1
-        visited[person] = True
-
-print(max_pill)
+        max_val = max(max_val, sum(sick_person))
+print(max_val)
