@@ -21,23 +21,26 @@ max_pill = 0
 possible_cheese = []
 impossible_cheese = []
 
-for i in sick_history:
+for ate_person, which_cheese, ate_time in eating_history:
+    flag = False
+    for sick_person, sick_time in sick_history:
+        if ate_person == sick_person:
+            flag = True
+            break
+    if not flag:
+        impossible_cheese.append(which_cheese)
+        
 
-    sick_person, sick_time = i
+for sick_person, sick_time in sick_history:
+    
+    for ate_person, which_cheese, ate_time in eating_history:
 
-    for t in range(0, sick_time):
+        for t in range(sick_time):
 
-        for j in eating_history:
-
-            ate_person, which_cheese, ate_time = j
-
-            if sick_person == ate_person and t >= ate_time and which_cheese not in impossible_cheese:
+            if sick_person == ate_person and t > ate_time and which_cheese not in impossible_cheese:
                 possible_cheese.append(which_cheese)
 
-    for t in range(sick_time + 1, 101):
-        for j in eating_history:
-
-            ate_person, which_cheese, ate_time = j
+        for t in range(sick_time + 1, 101):
 
             if sick_person == ate_person and t < ate_time:
                 impossible_cheese.append(which_cheese)
@@ -46,14 +49,15 @@ for i in sick_history:
                     possible_cheese.remove(which_cheese)
 
 
-
-
+# print(possible_cheese)
+# print(impossible_cheese)
 
 visited = [False for _ in range(51)]
 for i in eating_history:
     person, cheese, _ = i
 
-    if visited[person] == True:
+    # 이미 체크한 사람 제외
+    if visited[person] == True: 
         continue
 
     if cheese in possible_cheese:
