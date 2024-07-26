@@ -16,12 +16,7 @@ for i in range(n):
         x,y = arr[j]
 
         for k in range(x,y):
-            visited[k] += 1
+            visited[k] = 1
     
-    cnt = 0
-    for j in range(1001):
-        if visited[j] == 1:
-            cnt += 1
-    
-    max_cnt = max(max_cnt, cnt)
+    max_cnt = max(max_cnt, sum(visited))
 print(max_cnt)
