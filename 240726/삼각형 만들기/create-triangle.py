@@ -12,13 +12,7 @@ def possible(a,b,c):
     x2, y2 = arr[b]
     x3, y3 = arr[c]
 
-    if ((x1 == x2) and (x2 != x3)) and ((y3 == y1) or (y3 == y2)):
-        return True
-
-    if ((x1 == x3) and (x2 != x3)) and ((y2 == y1) or (y3 == y2)):
-        return True
-    
-    if ((x2 == x3) and (x1 != x3)) and ((y2 == y1) or (y3 == y1)):
+    if (x1 == x2 or x1 == x3 or x2 == x3) and (y1 == y2 or y1 == y3 or y2 == y3):
         return True
 
     return False
