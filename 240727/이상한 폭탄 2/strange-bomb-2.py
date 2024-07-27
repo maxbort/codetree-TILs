@@ -1,18 +1,18 @@
 n,k = map(int,input().split())
 
-arr = [0 for _ in range(k)]
+arr = [
+    int(input())
+    for _ in range(n)
+]
+
+ans = -1
+
 for i in range(n):
-    arr.append(int(input()))
-
-for i in range(k):
-    arr.append(0)
-
-#print(arr)
-
-boom = []
-
-for i in range(k,k+n):
-    for j in range(i+1,i+k):
+    for j in range(n):
+        if i == j:
+            continue
+        
         if arr[i] == arr[j]:
-            boom.append(arr[i])
-print(max(boom))
+            if k >= abs(j-i):
+                ans = max(ans, arr[i])
+print(ans)
