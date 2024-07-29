@@ -12,11 +12,11 @@ for x,y in arr:
     x_s.add(x)
     y_s.add(y)
 
-line = []
+line=[]
 for i in x_s:
-    line.append([i, -1])
+    line.append((i,-1))
 for i in y_s:
-    line.append([-1, i])
+    line.append((-1,i))
 
 l = len(line)
 
