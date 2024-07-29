@@ -7,7 +7,7 @@ arr = [
     for _ in range(t)
 ]
 
-visited = ['.' for _ in range(b+1)]
+visited = ['.' for _ in range(1001)]
 
 for alpha, idx in arr:
     visited[int(idx)] = alpha
