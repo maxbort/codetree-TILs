@@ -16,11 +16,15 @@ line = [
     [arr[2][0],arr[1][1],arr[0][2]],
 ]
 
-cnt = 0
+
+temp_total = list()
 for i in line:
     temp = set()
     for j in i:
         temp.add(j)
+    
     if len(temp) == 2:
-        cnt += 1
-print(cnt)
+        if temp not in temp_total:
+            temp_total.append(temp)
+
+print(len(temp_total))
