@@ -17,6 +17,7 @@ else:
         else:
             max_cnt = max(max_cnt, cnt)
             cnt = 1
+    max_cnt = max(max_cnt, cnt)
         
 
     print(max_cnt)
