@@ -6,42 +6,32 @@ arr = [
 ]
 
 # L, R , last
-temp = [[0,0,0] for _ in range(200001)]
+white = [0] * 200001
+black = [0] * 200001
+color = [0] * 200001
 
 cur = 100000
 
 for l, d in arr:
     l = int(l)
 
-    if d == 'R':
-        for i in range(l):
-            if temp[cur+i][2] == 3:
-                continue
-            temp[cur+i][1] += 1
-            temp[cur+i][2] = 2
-            if temp[cur+i][0] >= 2 and temp[cur+i][1] >= 2:
-                temp[cur+i][2] = 3
-
-        cur += l
-
     if d == 'L':
-        for i in range(1,l+1):
-            if temp[cur-i][2] == 3:
-                continue
-            temp[cur-i][0] += 1
-            temp[cur-i][2] = 1
-            if temp[cur-i][0] >= 2 and temp[cur-i][1] >= 2:
-                temp[cur-i][2] = 3
-        cur -= l
+        for i in range(cur-l+1, cur+1):
+            color[i] = 1
+            white[i] += 1
+        cur -= l-1
+    else:
+        for i in range(cur, cur+l):
+            color[i] = 2
+            black[i] += 1
+        cur += l-1
 
-one_c,two_c,third_c = 0,0,0
-
-for _,_,last in temp:
-    if last == 1:
-        one_c += 1
-    elif last == 2:
-        two_c += 1
-    elif last == 3:
-        third_c += 1
-
-print(one_c, two_c, third_c)
+w,b,g = 0,0,0
+for i in range(len(color)):
+    if white[i] >= 2 and black[i] >= 2:
+        g += 1
+    elif color[i] == 1:
+        w += 1
+    elif color[i] == 2:
+        b += 1
+print(w,b,g)
