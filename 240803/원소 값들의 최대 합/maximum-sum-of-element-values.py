@@ -1,18 +1,12 @@
-from collections import deque
-
 n,m = map(int,input().split())
-arr = list(map(int,input().split()))
+arr = [0] + list(map(int,input().split()))
 
-
-q = deque(sorted(arr, reverse=True))
-
-idx, cnt = 0,0
-while q:
-    data = q.popleft()
-
-    cnt += data
-    idx += 1
-
-    if idx == m:
-        break
-print(cnt)
+max_cnt = 0
+for i in range(1,n+1):
+    cnt = arr[i]
+    idx = arr[i]
+    for _ in range(m-1):
+        cnt += arr[idx]
+        idx = arr[idx]
+    max_cnt = max(max_cnt, cnt)
+print(max_cnt)
