@@ -4,10 +4,12 @@ A = [0] * 1001
 B = [0] * 1001
 
 a_idx = 1
+time = 0
 
 for i in range(n):
     d, t = input().split()
     t = int(t)
+    time += t
 
     if d == 'R':
         for _ in range(t):
@@ -35,7 +37,7 @@ for i in range(m):
             a_idx += 1
 
 cnt = -1
-for i in range(1,1001):
+for i in range(1,time):
     if A[i] == B[i]:
         cnt = i
         break
