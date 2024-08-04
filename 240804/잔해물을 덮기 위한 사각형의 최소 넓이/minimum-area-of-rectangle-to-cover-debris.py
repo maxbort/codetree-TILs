@@ -1,20 +1,22 @@
 OFFSET = 1000
 
-a_x1, a_y1, a_x2, a_y2 = map(int,input().split())
-b_x1, b_y1, b_x2, b_y2 = map(int,input().split())
+arr = [
+    list(map(int,input().split()))
+    for _ in range(2)
+]
 
 temp = [
     [0 for _ in range(2001)]
     for _ in range(2001)
 ]
 
-for x in range(a_x1+OFFSET, a_x2+OFFSET):
-    for y in range(a_y1+OFFSET, a_y2+OFFSET):
-        temp[x][y] = 1
+for i, (x1,y1,x2,y2) in enumerate(arr, start = 1):
+    x1,y1 = x1 + OFFSET, y1 + OFFSET
+    x2,y2 = x2 + OFFSET, y2 + OFFSET
 
-for x in range(b_x1+OFFSET, b_x2+OFFSET):
-    for y in range(b_y1+OFFSET, b_y2+OFFSET):
-        temp[x][y] = 0
+    for x in range(x1,x2):
+        for y in range(y1,y2):
+            temp[x][y] = i
 
 min_x, min_y, max_x, max_y = 2001,2001,0,0
 
