@@ -1,7 +1,7 @@
 n,m = map(int,input().split())
 
-A = [0] * 1001
-B = [0] * 1001
+A = [0] * 1000001
+B = [0] * 1000001
 
 a_idx = 1
 time = 0
@@ -37,7 +37,7 @@ for i in range(m):
             a_idx += 1
 
 cnt = -1
-for i in range(1,min(1000000, time)):
+for i in range(1,min(1000000, time)+1):
     if A[i] == B[i]:
         cnt = i
         break
