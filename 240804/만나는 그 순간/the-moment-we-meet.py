@@ -37,7 +37,7 @@ for i in range(m):
             a_idx += 1
 
 cnt = -1
-for i in range(1,time+1):
+for i in range(1,min(1000000, time)):
     if A[i] == B[i]:
         cnt = i
         break
