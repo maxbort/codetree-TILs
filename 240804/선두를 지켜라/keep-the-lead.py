@@ -22,13 +22,9 @@ for i in range(len(a)):
     if a[i] > b[i]:
         if leader == 1:
             cnt += 1
-            leader = 2
-        else:
-            leader = 2
+        leader = 2
     elif a[i] < b[i]:
         if leader == 2:
             cnt += 1
-            leader = 1
-        else:
-            leader = 1
+        leader = 1
 print(cnt)
