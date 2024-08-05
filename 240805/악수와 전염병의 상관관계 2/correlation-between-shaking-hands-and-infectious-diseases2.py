@@ -11,18 +11,20 @@ handShake = [0] * (n+1) # k번 이상 악수했는지 체크용
 virus = [0] * (n+1) # 감염되면 1
 virus[p] = 1
 
-for t,x,y in arr:
-    #print(t,x,y)
-    if virus[x] == 1:
-        if handShake[x] < k:
-            virus[y] = 1
-            handShake[x] += 1
-    if virus[y] == 1:
-        if handShake[y] < k:
-            virus[x] = 1
-            handShake[y] += 1
-    #print("virus ---->", virus)
-    #print("handShake ---->", handShake)
+for _,x,y in arr:
+
+    if (x == p or virus[x] == 1) and (y == p or virus[y] == 1):
+        handShake[x] += 1
+        handShake[y] += 1
+    elif (x == p or virus[x] == 1) and handShake[x] < k:
+        virus[y] = 1
+        handShake[x] += 1
+    elif (y == p or virus[y] == 1) and handShake[y] < k:
+        virus[x] = 1
+        handShake[y] += 1
+
+    # print("virus ---->", virus)
+    # print("handShake ---->", handShake)
     
 
 for i in range(1,n+1):
