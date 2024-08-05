@@ -28,13 +28,13 @@ for t, d in b:
         b_idx += 1
 
 if a_idx < b_idx:
-    for i in range(a_idx,b_idx+1):
+    for i in range(a_idx,b_idx):
         A[i] = A[i-1]
 elif a_idx > b_idx:
-    for i in range(b_idx,a_idx+1):
+    for i in range(b_idx,a_idx):
         B[i] = B[i-1]
 
-for i in range(1,max(a_idx, b_idx)+1):
+for i in range(1,max(a_idx, b_idx)):
     if A[i-1] != B[i-1] and A[i] == B[i]:
         ans += 1
 print(ans)
