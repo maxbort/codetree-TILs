@@ -5,34 +5,15 @@ arr = [
     for _ in range(n)
 ]
 
-ans = 0
+arr.sort()
 
-temp = [0] * 1001
+d = [1] * n
 
-for i in range(n):
+for i in range(1,n):
+    for j in range(i):
+        x,y = arr[i]
+        x2,y2 = arr[j]
 
-    x,y = arr[i]
-    cnt = 1
-
-    for j in range(x,y+1):
-        temp[j] = 1
-
-    for j in range(n):
-        if i == j:
-            continue
-        
-        x,y = arr[j]
-        flag = False
-
-        for h in range(x,y+1):
-            if temp[h] == 1:
-                flag = True
-                break
-        
-        if flag:
-            continue
-        
-        cnt += 1
-    
-    ans = max(ans, cnt)
-print(ans)
+        if y2 < x:
+            d[i] = max(d[i], d[j] + 1)
+print(max(d))
