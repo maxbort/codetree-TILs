@@ -14,7 +14,7 @@ for i in range(n):
     x,y = arr[i]
     cnt = 1
 
-    for j in range(x,y):
+    for j in range(x,y+1):
         temp[j] = 1
 
     for j in range(n):
@@ -24,7 +24,7 @@ for i in range(n):
         x,y = arr[j]
         flag = False
 
-        for h in range(x,y):
+        for h in range(x,y+1):
             if temp[h] == 1:
                 flag = True
                 break
