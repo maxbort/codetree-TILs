@@ -13,7 +13,6 @@ dic = {}
 for i in alpha:
     dic[i] = 0
 
-
 def calc():
 
     for i,k in enumerate(dic.keys()):
@@ -35,7 +34,7 @@ def calc():
 def choose(cnt):
     global max_val
 
-    if cnt == len(alpha):
+    if cnt == len(dic):
         max_val = max(max_val, calc())
         return
     
