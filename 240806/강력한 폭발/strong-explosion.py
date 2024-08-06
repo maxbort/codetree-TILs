@@ -13,9 +13,12 @@ for i in range(n):
             site.append((i,j))
 
 
-shape1 = [(-2,0),(-1,0),(1,0),(2,0)]
-shape2 = [(0,-1),(-1,0),(1,0),(0,1)]
-shape3 = [(-1,1),(-1,-1),(1,1),(1,-1)]
+shape = [
+    [],
+    [(-2,0),(-1,0),(1,0),(2,0)],
+    [(0,-1),(-1,0),(1,0),(0,1)],
+    [(-1,1),(-1,-1),(1,1),(1,-1)]
+]
 
 temp = []
 max_val = 0
@@ -41,24 +44,11 @@ def getSize():
     for num, x, y in temp:
         visited[x][y] = 1
 
-        if num == 1:
-            for dx,dy in shape1:
-                nx,ny = x + dx, y + dy
-                if not in_range(nx,ny):
-                    continue
-                visited[nx][ny] = 1
-        elif num == 2:
-            for dx,dy in shape2:
-                nx,ny = x + dx, y + dy
-                if not in_range(nx,ny):
-                    continue
-                visited[nx][ny] = 1
-        elif num == 3:
-            for dx,dy in shape3:
-                nx,ny = x + dx, y + dy
-                if not in_range(nx,ny):
-                    continue
-                visited[nx][ny] = 1
+        for dx,dy in shape[num]:
+            nx,ny = x + dx, y + dy
+            if not in_range(nx,ny):
+                continue
+            visited[nx][ny] = 1
     
     return sum(sum(i) for i in visited)
 
@@ -73,10 +63,11 @@ def choose(cnt):
     
     
     for i in range(1,4):
-        for x,y in site:
-            temp.append((i, x, y))
-            choose(cnt + 1)
-            temp.pop()
+        x, y= site[cnt]
+        
+        temp.append((i, x, y))
+        choose(cnt + 1)
+        temp.pop()
 
 choose(0)
 print(max_val)
