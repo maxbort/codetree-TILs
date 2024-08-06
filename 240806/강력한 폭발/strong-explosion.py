@@ -23,12 +23,20 @@ max_val = 0
 def in_range(x,y):
     return 0<=x<n and 0<=y<n
 
+visited = [
+    [0 for _ in range(n)]
+    for _ in range(n)
+]
+
+def init_visited():
+    for i in range(n):
+        for j in range(n):
+            visited[i][j] = 0
+
 def getSize():
 
-    visited = [
-        [0 for _ in range(n)]
-        for _ in range(n)
-    ]
+    global visited 
+    init_visited()
 
     for num, x, y in temp:
         visited[x][y] = 1
