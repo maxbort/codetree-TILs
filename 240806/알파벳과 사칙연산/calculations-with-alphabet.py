@@ -1,7 +1,8 @@
+import sys
 string = input()
 
 alpha, oper, ans = [],[],[]
-max_val = 0
+max_val = -sys.maxsize
 
 for i in string:
     if i.isalpha():
